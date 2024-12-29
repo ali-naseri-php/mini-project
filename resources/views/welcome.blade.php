@@ -179,7 +179,6 @@
                             <div class='wzc59 wz-template'>
                                 @if(! Auth::check())
                                 <div class='wzc59-links wz-member-links'><button  onclick="window.location='{{route('form.login') }}'" class="btn btn-dark">ورود</button><span
-                                        class='wz-member-separate'>/</span><button  onclick="window.location='{{route('form.register') }}'" class="btn btn-dark">ثبت نام</button>
 
                                 @else
                                     <div class='wzc59-links wz-member-links'><button  onclick="window.location='{{route('logout') }}'" class="btn btn-dark">خروج</button><span
