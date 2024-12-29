@@ -1,176 +1,1873 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            <style>
-                /* ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.absolute{position:absolute}.relative{position:relative}.-left-20{left:-5rem}.top-0{top:0px}.-bottom-16{bottom:-4rem}.-left-16{left:-4rem}.-mx-3{margin-left:-0.75rem;margin-right:-0.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-video{aspect-ratio:16 / 9}.size-12{width:3rem;height:3rem}.size-5{width:1.25rem;height:1.25rem}.size-6{width:1.5rem;height:1.5rem}.h-12{height:3rem}.h-40{height:10rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-full{width:100%}.w-\[calc\(100\%\+8rem\)\]{width:calc(100% + 8rem)}.w-auto{width:auto}.max-w-\[877px\]{max-width:877px}.max-w-2xl{max-width:42rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.rounded-\[10px\]{border-radius:10px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-sm{border-radius:0.125rem}.bg-\[\#FF2D20\]\/10{background-color:rgb(255 45 32 / 0.1)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.from-transparent{--tw-gradient-from:transparent var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-white{--tw-gradient-to:rgb(255 255 255 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #fff var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-white{--tw-gradient-to:#fff var(--tw-gradient-to-position)}.stroke-\[\#FF2D20\]{stroke:#FF2D20}.object-cover{object-fit:cover}.object-top{object-position:top}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.pt-3{padding-top:0.75rem}.text-center{text-align:center}.font-sans{font-family:Figtree, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-sm\/relaxed{font-size:0.875rem;line-height:1.625}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-semibold{font-weight:600}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-\[0px_14px_34px_0px_rgba\(0\2c 0\2c 0\2c 0\.08\)\]{--tw-shadow:0px 14px 34px 0px rgba(0,0,0,0.08);--tw-shadow-colored:0px 14px 34px 0px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-transparent{--tw-ring-color:transparent}.ring-white\/\[0\.05\]{--tw-ring-color:rgb(255 255 255 / 0.05)}.drop-shadow-\[0px_4px_34px_rgba\(0\2c 0\2c 0\2c 0\.06\)\]{--tw-drop-shadow:drop-shadow(0px 4px 34px rgba(0,0,0,0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-\[0px_4px_34px_rgba\(0\2c 0\2c 0\2c 0\.25\)\]{--tw-drop-shadow:drop-shadow(0px 4px 34px rgba(0,0,0,0.25));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.selection\:bg-\[\#FF2D20\] *::selection{--tw-bg-opacity:1;background-color:rgb(255 45 32 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-\[\#FF2D20\]::selection{--tw-bg-opacity:1;background-color:rgb(255 45 32 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity))}.hover\:text-black\/70:hover{color:rgb(0 0 0 / 0.7)}.hover\:ring-black\/20:hover{--tw-ring-color:rgb(0 0 0 / 0.2)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus-visible\:ring-1:focus-visible{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus-visible\:ring-\[\#FF2D20\]:focus-visible{--tw-ring-opacity:1;--tw-ring-color:rgb(255 45 32 / var(--tw-ring-opacity))}@media (min-width: 640px){.sm\:size-16{width:4rem;height:4rem}.sm\:size-6{width:1.5rem;height:1.5rem}.sm\:pt-5{padding-top:1.25rem}}@media (min-width: 768px){.md\:row-span-3{grid-row:span 3 / span 3}}@media (min-width: 1024px){.lg\:col-start-2{grid-column-start:2}.lg\:h-16{height:4rem}.lg\:max-w-7xl{max-width:80rem}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:flex-col{flex-direction:column}.lg\:items-end{align-items:flex-end}.lg\:justify-center{justify-content:center}.lg\:gap-8{gap:2rem}.lg\:p-10{padding:2.5rem}.lg\:pb-10{padding-bottom:2.5rem}.lg\:pt-0{padding-top:0px}.lg\:text-\[\#FF2D20\]{--tw-text-opacity:1;color:rgb(255 45 32 / var(--tw-text-opacity))}}@media (prefers-color-scheme: dark){.dark\:block{display:block}.dark\:hidden{display:none}.dark\:bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity))}.dark\:bg-zinc-900{--tw-bg-opacity:1;background-color:rgb(24 24 27 / var(--tw-bg-opacity))}.dark\:via-zinc-900{--tw-gradient-to:rgb(24 24 27 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #18181b var(--tw-gradient-via-position), var(--tw-gradient-to)}.dark\:to-zinc-900{--tw-gradient-to:#18181b var(--tw-gradient-to-position)}.dark\:text-white\/50{color:rgb(255 255 255 / 0.5)}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:text-white\/70{color:rgb(255 255 255 / 0.7)}.dark\:ring-zinc-800{--tw-ring-opacity:1;--tw-ring-color:rgb(39 39 42 / var(--tw-ring-opacity))}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:hover\:text-white\/70:hover{color:rgb(255 255 255 / 0.7)}.dark\:hover\:text-white\/80:hover{color:rgb(255 255 255 / 0.8)}.dark\:hover\:ring-zinc-700:hover{--tw-ring-opacity:1;--tw-ring-color:rgb(63 63 70 / var(--tw-ring-opacity))}.dark\:focus-visible\:ring-\[\#FF2D20\]:focus-visible{--tw-ring-opacity:1;--tw-ring-color:rgb(255 45 32 / var(--tw-ring-opacity))}.dark\:focus-visible\:ring-white:focus-visible{--tw-ring-opacity:1;--tw-ring-color:rgb(255 255 255 / var(--tw-ring-opacity))}}
-            </style>
-        @endif
-    </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-            <img id="background" class="absolute -left-20 top-0 max-w-[877px]" src="https://laravel.com/assets/img/welcome/background.svg" alt="Laravel background" />
-            <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-                <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                        <div class="flex lg:justify-center lg:col-start-2">
-                            <svg class="h-12 w-auto text-white lg:h-16 lg:text-[#FF2D20]" viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="currentColor"/></svg>
+<!doctype html>
+<html lang="fa" prefix="og: http://ogp.me/ns#">
+<head><title>صفحه نخست</title>
+    <meta charset="utf-8">
+    <meta id="wz-viewport" name="viewport" content="width=device-width, user-scalable=0">
+    <meta name="description" content="">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="robots" content="index,follow,noodp,noydir"/>
+    <link rel="canonical" href="https://theme58.mywebzi.ir/"/>
+    <meta property="og:locale" content="fa-IR"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="صفحه نخست"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:url" content="https://theme58.mywebzi.ir/"/>
+    <meta property="og:site_name" content=""/>
+    <meta name='generator' content='Webzi.ir Website Builder'/>
+    <meta name='ID' content='11ed0a5f92d0426a8ef630e171546af8'/>
+    <meta name='fontiran.com:license' content='B7G43'/>
+    <meta name='fontiran.com:license' content='C6KGR'/>
+    <link rel="stylesheet" type="text/css"
+          href="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/bower_components/flexslider/flexslider.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/bower_components/remodal/dist/remodal.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/bower_components/remodal/dist/remodal-default-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="https://theme58.mywebzi.ir/theme-1683047778/css/style.css"/>
+    <style>.wz-loader-container {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            z-index: 10000;
+            margin: auto;
+            background: #fff;
+        }</style>
+    <script> var mvp = document.getElementById('wz-viewport');
+        if (screen.width < 1170 && screen.width > 768) {
+            mvp.setAttribute('content', 'width=769, user-scalable=0');
+        } else if (screen.width < 768) {
+            mvp.setAttribute('content', 'width=468, user-scalable=0');
+        } </script>
+</head>
+<body data-width="1170" class="wz-production" data-page="p1">
+<div class="wz-loader-container wz-loader-container-fix" style="display: block">
+    <div class="sk-circle">
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+    </div>
+</div>
+<div id="wz-root-background"></div>
+<div id="wz-root">
+    <div class='wz-section-full wzc-section-header-full'>
+        <div class='wzc-section-header-full-style'></div>
+        <div id='wz-section-header' class='wz-section wzc-section-header wz-section-grid'>
+            <div id='wze3' class='wz-element wz-element-full-width' data-widget='wz-box' data-minheight='1'
+                 data-minwidth='1'>
+                <div class='wzc55 wz-template'>
+                    <div class='wzc55-bg'></div>
+                    <div class='wzc55-content wz-box-content wz-element-container'>
+                        <div id='wze30' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                             wz-fix-line-height2 wz-autoheight>
+                            <div class='wzc4 wz-template'>
+                                <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                              style="font-size: 11px; line-height: normal;">
+                                        <span style="color:rgb(var(--color_3_1));"><span
+                                                style="font-family:dana_fa,tahoma,serif;"><span style="font-size:11px;">تیتر مورد نظر شما در اینجا ...</span></span></span>
+                                    </h2></div>
+                            </div>
                         </div>
-                        @if (Route::has('login'))
-                            <nav class="-mx-3 flex flex-1 justify-end">
-                                @auth
-                                    <a
-                                        href="{{ url('/dashboard') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Dashboard
-                                    </a>
-                                @else
-                                    <a
-                                        href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Log in
-                                    </a>
-
-                                    @if (Route::has('register'))
-                                        <a
-                                            href="{{ route('register') }}"
-                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                        >
-                                            Register
-                                        </a>
-                                    @endif
-                                @endauth
-                            </nav>
-                        @endif
-                    </header>
-
-                    <main class="mt-6">
-                        <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
-                            <a
-                                href="https://laravel.com/docs"
-                                id="docs-card"
-                                class="flex flex-col items-start gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] md:row-span-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
-                            >
-                                <div id="screenshot-container" class="relative flex w-full flex-1 items-stretch">
-                                    <img
-                                        src="https://laravel.com/assets/img/welcome/docs-light.svg"
-                                        alt="Laravel documentation screenshot"
-                                        class="aspect-video h-full w-full flex-1 rounded-[10px] object-top object-cover drop-shadow-[0px_4px_34px_rgba(0,0,0,0.06)] dark:hidden"
-                                        onerror="
-                                            document.getElementById('screenshot-container').classList.add('!hidden');
-                                            document.getElementById('docs-card').classList.add('!row-span-1');
-                                            document.getElementById('docs-card-content').classList.add('!flex-row');
-                                            document.getElementById('background').classList.add('!hidden');
-                                        "
-                                    />
-                                    <img
-                                        src="https://laravel.com/assets/img/welcome/docs-dark.svg"
-                                        alt="Laravel documentation screenshot"
-                                        class="hidden aspect-video h-full w-full flex-1 rounded-[10px] object-top object-cover drop-shadow-[0px_4px_34px_rgba(0,0,0,0.25)] dark:block"
-                                    />
-                                    <div
-                                        class="absolute -bottom-16 -left-16 h-40 w-[calc(100%+8rem)] bg-gradient-to-b from-transparent via-white to-white dark:via-zinc-900 dark:to-zinc-900"
-                                    ></div>
-                                </div>
-
-                                <div class="relative flex items-center gap-6 lg:items-end">
-                                    <div id="docs-card-content" class="flex items-start gap-6 lg:flex-col">
-                                        <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16">
-                                            <svg class="size-5 sm:size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="#FF2D20" d="M23 4a1 1 0 0 0-1.447-.894L12.224 7.77a.5.5 0 0 1-.448 0L2.447 3.106A1 1 0 0 0 1 4v13.382a1.99 1.99 0 0 0 1.105 1.79l9.448 4.728c.14.065.293.1.447.1.154-.005.306-.04.447-.105l9.453-4.724a1.99 1.99 0 0 0 1.1-1.789V4ZM3 6.023a.25.25 0 0 1 .362-.223l7.5 3.75a.251.251 0 0 1 .138.223v11.2a.25.25 0 0 1-.362.224l-7.5-3.75a.25.25 0 0 1-.138-.22V6.023Zm18 11.2a.25.25 0 0 1-.138.224l-7.5 3.75a.249.249 0 0 1-.329-.099.249.249 0 0 1-.033-.12V9.772a.251.251 0 0 1 .138-.224l7.5-3.75a.25.25 0 0 1 .362.224v11.2Z"/><path fill="#FF2D20" d="m3.55 1.893 8 4.048a1.008 1.008 0 0 0 .9 0l8-4.048a1 1 0 0 0-.9-1.785l-7.322 3.706a.506.506 0 0 1-.452 0L4.454.108a1 1 0 0 0-.9 1.785H3.55Z"/></svg>
-                                        </div>
-
-                                        <div class="pt-3 sm:pt-5 lg:pt-0">
-                                            <h2 class="text-xl font-semibold text-black dark:text-white">Documentation</h2>
-
-                                            <p class="mt-4 text-sm/relaxed">
-                                                Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <svg class="size-6 shrink-0 stroke-[#FF2D20]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
-                                </div>
-                            </a>
-
-                            <a
-                                href="https://laracasts.com"
-                                class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
-                            >
-                                <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16">
-                                    <svg class="size-5 sm:size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g fill="#FF2D20"><path d="M24 8.25a.5.5 0 0 0-.5-.5H.5a.5.5 0 0 0-.5.5v12a2.5 2.5 0 0 0 2.5 2.5h19a2.5 2.5 0 0 0 2.5-2.5v-12Zm-7.765 5.868a1.221 1.221 0 0 1 0 2.264l-6.626 2.776A1.153 1.153 0 0 1 8 18.123v-5.746a1.151 1.151 0 0 1 1.609-1.035l6.626 2.776ZM19.564 1.677a.25.25 0 0 0-.177-.427H15.6a.106.106 0 0 0-.072.03l-4.54 4.543a.25.25 0 0 0 .177.427h3.783c.027 0 .054-.01.073-.03l4.543-4.543ZM22.071 1.318a.047.047 0 0 0-.045.013l-4.492 4.492a.249.249 0 0 0 .038.385.25.25 0 0 0 .14.042h5.784a.5.5 0 0 0 .5-.5v-2a2.5 2.5 0 0 0-1.925-2.432ZM13.014 1.677a.25.25 0 0 0-.178-.427H9.101a.106.106 0 0 0-.073.03l-4.54 4.543a.25.25 0 0 0 .177.427H8.4a.106.106 0 0 0 .073-.03l4.54-4.543ZM6.513 1.677a.25.25 0 0 0-.177-.427H2.5A2.5 2.5 0 0 0 0 3.75v2a.5.5 0 0 0 .5.5h1.4a.106.106 0 0 0 .073-.03l4.54-4.543Z"/></g></svg>
-                                </div>
-
-                                <div class="pt-3 sm:pt-5">
-                                    <h2 class="text-xl font-semibold text-black dark:text-white">Laracasts</h2>
-
-                                    <p class="mt-4 text-sm/relaxed">
-                                        Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                    </p>
-                                </div>
-
-                                <svg class="size-6 shrink-0 self-center stroke-[#FF2D20]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
-                            </a>
-
-                            <a
-                                href="https://laravel-news.com"
-                                class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
-                            >
-                                <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16">
-                                    <svg class="size-5 sm:size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g fill="#FF2D20"><path d="M8.75 4.5H5.5c-.69 0-1.25.56-1.25 1.25v4.75c0 .69.56 1.25 1.25 1.25h3.25c.69 0 1.25-.56 1.25-1.25V5.75c0-.69-.56-1.25-1.25-1.25Z"/><path d="M24 10a3 3 0 0 0-3-3h-2V2.5a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2V20a3.5 3.5 0 0 0 3.5 3.5h17A3.5 3.5 0 0 0 24 20V10ZM3.5 21.5A1.5 1.5 0 0 1 2 20V3a.5.5 0 0 1 .5-.5h14a.5.5 0 0 1 .5.5v17c0 .295.037.588.11.874a.5.5 0 0 1-.484.625L3.5 21.5ZM22 20a1.5 1.5 0 1 1-3 0V9.5a.5.5 0 0 1 .5-.5H21a1 1 0 0 1 1 1v10Z"/><path d="M12.751 6.047h2a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-2A.75.75 0 0 1 12 7.3v-.5a.75.75 0 0 1 .751-.753ZM12.751 10.047h2a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-2A.75.75 0 0 1 12 11.3v-.5a.75.75 0 0 1 .751-.753ZM4.751 14.047h10a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-10A.75.75 0 0 1 4 15.3v-.5a.75.75 0 0 1 .751-.753ZM4.75 18.047h7.5a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-7.5A.75.75 0 0 1 4 19.3v-.5a.75.75 0 0 1 .75-.753Z"/></g></svg>
-                                </div>
-
-                                <div class="pt-3 sm:pt-5">
-                                    <h2 class="text-xl font-semibold text-black dark:text-white">Laravel News</h2>
-
-                                    <p class="mt-4 text-sm/relaxed">
-                                        Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                    </p>
-                                </div>
-
-                                <svg class="size-6 shrink-0 self-center stroke-[#FF2D20]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
-                            </a>
-
-                            <div class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]">
-                                <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16">
-                                    <svg class="size-5 sm:size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                        <g fill="#FF2D20">
-                                            <path
-                                                d="M16.597 12.635a.247.247 0 0 0-.08-.237 2.234 2.234 0 0 1-.769-1.68c.001-.195.03-.39.084-.578a.25.25 0 0 0-.09-.267 8.8 8.8 0 0 0-4.826-1.66.25.25 0 0 0-.268.181 2.5 2.5 0 0 1-2.4 1.824.045.045 0 0 0-.045.037 12.255 12.255 0 0 0-.093 3.86.251.251 0 0 0 .208.214c2.22.366 4.367 1.08 6.362 2.118a.252.252 0 0 0 .32-.079 10.09 10.09 0 0 0 1.597-3.733ZM13.616 17.968a.25.25 0 0 0-.063-.407A19.697 19.697 0 0 0 8.91 15.98a.25.25 0 0 0-.287.325c.151.455.334.898.548 1.328.437.827.981 1.594 1.619 2.28a.249.249 0 0 0 .32.044 29.13 29.13 0 0 0 2.506-1.99ZM6.303 14.105a.25.25 0 0 0 .265-.274 13.048 13.048 0 0 1 .205-4.045.062.062 0 0 0-.022-.07 2.5 2.5 0 0 1-.777-.982.25.25 0 0 0-.271-.149 11 11 0 0 0-5.6 2.815.255.255 0 0 0-.075.163c-.008.135-.02.27-.02.406.002.8.084 1.598.246 2.381a.25.25 0 0 0 .303.193 19.924 19.924 0 0 1 5.746-.438ZM9.228 20.914a.25.25 0 0 0 .1-.393 11.53 11.53 0 0 1-1.5-2.22 12.238 12.238 0 0 1-.91-2.465.248.248 0 0 0-.22-.187 18.876 18.876 0 0 0-5.69.33.249.249 0 0 0-.179.336c.838 2.142 2.272 4 4.132 5.353a.254.254 0 0 0 .15.048c1.41-.01 2.807-.282 4.117-.802ZM18.93 12.957l-.005-.008a.25.25 0 0 0-.268-.082 2.21 2.21 0 0 1-.41.081.25.25 0 0 0-.217.2c-.582 2.66-2.127 5.35-5.75 7.843a.248.248 0 0 0-.09.299.25.25 0 0 0 .065.091 28.703 28.703 0 0 0 2.662 2.12.246.246 0 0 0 .209.037c2.579-.701 4.85-2.242 6.456-4.378a.25.25 0 0 0 .048-.189 13.51 13.51 0 0 0-2.7-6.014ZM5.702 7.058a.254.254 0 0 0 .2-.165A2.488 2.488 0 0 1 7.98 5.245a.093.093 0 0 0 .078-.062 19.734 19.734 0 0 1 3.055-4.74.25.25 0 0 0-.21-.41 12.009 12.009 0 0 0-10.4 8.558.25.25 0 0 0 .373.281 12.912 12.912 0 0 1 4.826-1.814ZM10.773 22.052a.25.25 0 0 0-.28-.046c-.758.356-1.55.635-2.365.833a.25.25 0 0 0-.022.48c1.252.43 2.568.65 3.893.65.1 0 .2 0 .3-.008a.25.25 0 0 0 .147-.444c-.526-.424-1.1-.917-1.673-1.465ZM18.744 8.436a.249.249 0 0 0 .15.228 2.246 2.246 0 0 1 1.352 2.054c0 .337-.08.67-.23.972a.25.25 0 0 0 .042.28l.007.009a15.016 15.016 0 0 1 2.52 4.6.25.25 0 0 0 .37.132.25.25 0 0 0 .096-.114c.623-1.464.944-3.039.945-4.63a12.005 12.005 0 0 0-5.78-10.258.25.25 0 0 0-.373.274c.547 2.109.85 4.274.901 6.453ZM9.61 5.38a.25.25 0 0 0 .08.31c.34.24.616.561.8.935a.25.25 0 0 0 .3.127.631.631 0 0 1 .206-.034c2.054.078 4.036.772 5.69 1.991a.251.251 0 0 0 .267.024c.046-.024.093-.047.141-.067a.25.25 0 0 0 .151-.23A29.98 29.98 0 0 0 15.957.764a.25.25 0 0 0-.16-.164 11.924 11.924 0 0 0-2.21-.518.252.252 0 0 0-.215.076A22.456 22.456 0 0 0 9.61 5.38Z"
-                                            />
-                                        </g>
-                                    </svg>
-                                </div>
-
-                                <div class="pt-3 sm:pt-5">
-                                    <h2 class="text-xl font-semibold text-black dark:text-white">Vibrant Ecosystem</h2>
-
-                                    <p class="mt-4 text-sm/relaxed">
-                                        Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white dark:focus-visible:ring-[#FF2D20]">Forge</a>, <a href="https://vapor.laravel.com" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Vapor</a>, <a href="https://nova.laravel.com" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Nova</a>, <a href="https://envoyer.io" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Envoyer</a>, and <a href="https://herd.laravel.com" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Herd</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Echo</a>, <a href="https://laravel.com/docs/horizon" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="rounded-sm underline hover:text-black focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-white">Telescope</a>, and more.
-                                    </p>
+                        <a id='wze101' class='wz-element' data-widget='wz-image' href='https://linkedin.com/'
+                           target='_blank'>
+                            <div class='wzc6 wz-template'>
+                                <div class='wzc6-frame'></div>
+                                <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                           src="https://theme58.mywebzi.ir/uploads/05c2fe96577442aabc81d2d9a9ded5de.fill_225136149100.svg"
+                                                           alt="لینکدین لوگو"/></div>
+                            </div>
+                        </a><a id='wze102' class='wz-element' data-widget='wz-image' href='https://twitter.com/'
+                               target='_blank'>
+                            <div class='wzc6 wz-template'>
+                                <div class='wzc6-frame'></div>
+                                <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                           src="https://theme58.mywebzi.ir/uploads/bf9047ba643c4e2da42b4f17a75de054.fill_225136149100.svg"
+                                                           alt="توییتر لوگو"/></div>
+                            </div>
+                        </a><a id='wze103' class='wz-element' data-widget='wz-image' href='https://facebook.com/'
+                               target='_blank'>
+                            <div class='wzc6 wz-template'>
+                                <div class='wzc6-frame'></div>
+                                <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                           src="https://theme58.mywebzi.ir/uploads/6183b2b2de6c4d5fb562f20ec2958059.fill_225136149100.svg"
+                                                           alt="فیسبوک لوگو"/></div>
+                            </div>
+                        </a><a id='wze104' class='wz-element' data-widget='wz-image' href='https://wa.me/'
+                               target='_blank'>
+                            <div class='wzc6 wz-template'>
+                                <div class='wzc6-frame'></div>
+                                <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                           src="https://theme58.mywebzi.ir/uploads/5a8cca467d1149e791c18f1134d43f55.fill_225136149100.svg"
+                                                           alt="واتساپ لوگو"/></div>
+                            </div>
+                        </a></div>
+                    <div class='wzc55-image-bg'></div>
+                </div>
+            </div>
+            <div id='wze7' class='wz-element' data-widget='wz-search' data-minwidth='300'>
+                <div class='wzc8 wz-template'>
+                    <div class='wzc8-form wz-site-search' wz-search-url="https://theme58.mywebzi.ir/shop"><input
+                            class='wzc8-form-input' type='text' placeholder='نام محصول یا دسته بندی مورد نظر شما ...'
+                            required="required"/>
+                        <button class='wzc8-form-submit wz-site-search-button' type='submit'>
+                            <div class='wzc7 wz-partial-template'>
+                                <div class='wzc7-bg'></div>
+                                <span class='wzc7-content wz-element-content'>بگرد</span></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id='wze10' class='wz-element' data-widget='wz-container'>
+                <div class='wzc9 wz-template'>
+                    <div class='wzc9-content wz-element-container'>
+                        <div id='wze4' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                             wz-fix-line-height2 wz-autoheight data-mobile-text-size="-0.2"
+                             data-text-change-size="true">
+                            <div class='wzc4 wz-template'>
+                                <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                              style="font-size: 22px; line-height: normal;">
+                                        <span style="color:rgb(var(--color_1_1));"><a target="_self"
+                                                                                      href="https://theme58.mywebzi.ir/"><strong><span
+                                                        style="font-size:22px;"><span
+                                                            style="font-family:dana_fa,tahoma,serif;">نام فروشگاه یدکی شما</span></span></strong></a></span>
+                                    </h2></div>
+                            </div>
+                        </div>
+                        <a id='wze8' class='wz-element' data-widget='wz-image' href='https://theme58.mywebzi.ir/'
+                           target='_self'>
+                            <div class='wzc6 wz-template'>
+                                <div class='wzc6-frame'></div>
+                                <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                           src="https://theme58.mywebzi.ir/uploads/d589e1298fc64f1ebeea4720a3f8727d.w_50,h_50,r_k.png"
+                                                           alt="لوگو"/></div>
+                            </div>
+                        </a>
+                        <div id='wze9' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                             wz-fix-line-height2 wz-autoheight data-mobile-text-size="-0.1"
+                             data-text-change-size="true">
+                            <div class='wzc4 wz-template'>
+                                <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                              style="font-size: 14px; line-height: normal;">
+                                        <span style="color:rgb(var(--color_2_2));"><a target="_self"
+                                                                                      href="https://theme58.mywebzi.ir/"><span
+                                                    style="font-size:14px;"><span
+                                                        style="font-family:dana_fa,tahoma,serif;">شعار مورد نظر شما در اینجاست.....</span></span></a></span>
+                                    </h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='wze12' class='wz-element' data-widget='wz-box' data-minheight='1' data-minwidth='1'>
+                <div class='wzc11 wz-template'>
+                    <div class='wzc11-bg'></div>
+                    <div class='wzc11-content wz-box-content wz-element-container'>
+                        <div id='wze107' class='wz-element' data-widget='wz-member' data-handles='a'>
+                            <div class='wzc59 wz-template'>
+                                <div class='wzc59-links wz-member-links'><a href='#' class='wz-member-link wz-login'>ورود</a><span
+                                        class='wz-member-separate'>/</span><a href='#'
+                                                                              class='wz-member-link wz-register'>ثبت نام
+                                        در سایت</a></div>
+                                <div class='wzc59-actions wz-member-actions'>
+                                    <ul>
+                                        <li href='#' id='wz-member-profile'><a>حساب کاربری من</a></li>
+                                        <li href='#' id='wz-member-password'><a>تغییر کلمه عبور</a></li>
+                                        <li href='#' id='wz-member-orders'><a>سفارشات</a></li>
+                                        <li href='#' id='wz-member-logout'><a>خروج</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </main>
-
-                    <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </footer>
+                    </div>
+                    <div class='wzc11-image-bg'></div>
+                </div>
+            </div>
+            <div id='wze20' class='wz-element' data-widget='wz-shop-cart-icon' data-handles='w, e, se, sw, ne, nw'
+                 wz-autoheight>
+                <div class='wzc22 wz-template'>
+                    <div class="wzc22-container shop-cart-icon-container shop-cart-icon-container-layout4"
+                         data-link="shop/cart">
+                        <div class='wzc22-container-icon shop-cart-icon'>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M121.263 390.737c-11.144 0-20.21-9.065-20.21-20.21V87.578c0-33.433-27.2-60.633-60.633-60.633H0v40.42h40.42c11.145 0 20.212 9.067 20.212 20.212v282.946c0 33.434 27.2 60.632 60.632 60.632h336.842v-40.42H121.263zM154.947 431.158c-14.86 0-26.947 12.09-26.947 26.947s12.09 26.947 26.947 26.947 26.947-12.09 26.947-26.947-12.088-26.947-26.947-26.947zM384 431.158c-14.86 0-26.947 12.09-26.947 26.947s12.09 26.947 26.947 26.947c14.86 0 26.947-12.09 26.947-26.947S398.86 431.158 384 431.158z"/>
+                                <path
+                                    d="M141.474 114.526v87.58h343.158L512 114.525M141.474 242.526v87.58h303.158l27.37-87.58"/>
+                            </svg>
+                        </div>
+                        <div class='wzc22-container-count shop-cart-count'>۰</div>
+                        <div class='wzc22-container-bubble shop-cart-bubble'></div>
+                    </div>
+                    <div class='wzc22-text wz-element-content shop-cart-text'></div>
+                </div>
+            </div>
+            <div id='wze21' class='wz-element responsive-menu' data-widget='wz-menu'>
+                <div class='wzc23 wz-template'>
+                    <ul class="wzc23-list wz-menu wz-menu-horizontal wz-menu-rtl wz-menu-effect-slide-down wz-menu-align-right wz-mega-menu">
+                        <li class=' active ' style=''><a href='https://theme58.mywebzi.ir/' target='_self'>صفحه نخست</a>
+                        </li>
+                        <li class=' wz-menu-has-children' style=''><a href='https://theme58.mywebzi.ir/shop/'
+                                                                      target='_self'>دسته‌بندی محصولات</a>
+                            <div class='sub-menu'>
+                                <ul>
+                                    <li class=' wz-menu-has-children' style=' width:25%'><a href='' target='_self'>قطعات
+                                            بدنه</a>
+                                        <div class='sub-menu'>
+                                            <ul>
+                                                <li class=' wz-menu-has-children' style=''><a href='' target='_self'>بدنه
+                                                        و شیشه</a>
+                                                    <div class='sub-menu'>
+                                                        <ul>
+                                                            <li class='' style=''><a href='' target='_self'>کاپوت</a>
+                                                            </li>
+                                                            <li class='' style=''><a href='' target='_self'>درب صندوق
+                                                                    عقب</a></li>
+                                                            <li class='' style=''><a href='' target='_self'>سپر</a></li>
+                                                            <li class='' style=''><a href='' target='_self'>درب
+                                                                    ماشین</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class='' style=''><a href='' target='_self'>قطعات روشنایی</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class=' wz-menu-has-children' style=' width:25%'><a href='' target='_self'>موتور
+                                            و اگزوز</a>
+                                        <div class='sub-menu'>
+                                            <ul>
+                                                <li class=' wz-menu-has-children' style=''><a href='' target='_self'>سیستم
+                                                        خنک‌کننده</a>
+                                                    <div class='sub-menu'>
+                                                        <ul>
+                                                            <li class='' style=''><a href='' target='_self'>رادیاتور
+                                                                    ماشین</a></li>
+                                                            <li class='' style=''><a href='' target='_self'>فن ماشین</a>
+                                                            </li>
+                                                            <li class='' style=''><a href='' target='_self'>ترموستات</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class=' wz-menu-has-children' style=''><a href='' target='_self'>قطعات
+                                                        موتوری</a>
+                                                    <div class='sub-menu'>
+                                                        <ul>
+                                                            <li class='' style=''><a href='' target='_self'>موتور
+                                                                    کامل</a></li>
+                                                            <li class='' style=''><a href='' target='_self'>نیم
+                                                                    موتور</a></li>
+                                                            <li class='' style=''><a href='' target='_self'>سرسیلند</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class='' style=''><a href='' target='_self'>سوخت رسانی و احتراق</a>
+                                                </li>
+                                                <li class=' wz-menu-has-children' style=''><a href='' target='_self'>قطعات
+                                                        اگزوز</a>
+                                                    <div class='sub-menu'>
+                                                        <ul>
+                                                            <li class='' style=''><a href=''
+                                                                                     target='_self'>کاتالیزور</a></li>
+                                                            <li class='' style=''><a href='' target='_self'>منبع
+                                                                    اگزوز</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class=' wz-menu-has-children' style=' width:25%'><a href='' target='_self'>برقی
+                                            و الکتریکی</a>
+                                        <div class='sub-menu'>
+                                            <ul>
+                                                <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                                <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                                <li class='' style=''><a href='' target='_self'>تست</a></li>
+                                                <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                                <li class='' style=''><a href='' target='_self'>تست</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class=' wz-menu-has-children' style=' width:25%'><a href='' target='_self'>رینگ
+                                            و لاستیک</a>
+                                        <div class='sub-menu'>
+                                            <ul>
+                                                <li class='' style=''><a href='' target='_self'>تست</a></li>
+                                                <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                                <li class=' wz-menu-has-children' style=''><a href=''
+                                                                                              target='_self'>تست</a>
+                                                    <div class='sub-menu'>
+                                                        <ul>
+                                                            <li class='' style=''><a href='' target='_self'>آیتم
+                                                                    جدید</a></li>
+                                                            <li class='' style=''><a href='' target='_self'>آیتم
+                                                                    جدید</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                                <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class=' wz-menu-has-children' style=''><a href='https://theme58.mywebzi.ir/cars/'
+                                                                      target='_self'>سایپا</a>
+                            <div class='sub-menu'>
+                                <ul>
+                                    <li class='' style=' width:50%'><a href='' target='_self'>کوییک</a></li>
+                                    <li class='' style=' width:50%'><a href='' target='_self'>ساینا</a></li>
+                                    <li class='' style=' width:50%'><a href='' target='_self'>شاهین</a></li>
+                                    <li class='' style=' width:50%'><a href='' target='_self'>پراید</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class=' wz-menu-has-children' style=''><a href='https://theme58.mywebzi.ir/cars/'
+                                                                      target='_self'>ایران‌خودرو</a>
+                            <div class='sub-menu'>
+                                <ul>
+                                    <li class='' style=' width:25%'><a href='' target='_self'>پژو ۲۰۶</a></li>
+                                    <li class='' style=' width:25%'><a href='' target='_self'>پژو ۴۰۵</a></li>
+                                    <li class='' style=' width:25%'><a href='' target='_self'>پژو پارس</a></li>
+                                    <li class='' style=' width:25%'><a href='' target='_self'>دنا</a></li>
+                                    <li class='' style=' width:25%'><a href='' target='_self'>تارا</a></li>
+                                    <li class='' style=' width:25%'><a href='' target='_self'>هایما S7</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class=' wz-menu-has-children' style=''><a href='https://theme58.mywebzi.ir/cars/'
+                                                                      target='_self'>خودرو چینی</a>
+                            <div class='sub-menu'>
+                                <ul>
+                                    <li class=' wz-menu-has-children' style=' width:50%'><a href='' target='_self'>کرمان
+                                            موتور</a>
+                                        <div class='sub-menu'>
+                                            <ul>
+                                                <li class='' style=''><a href='' target='_self'>جک J7</a></li>
+                                                <li class='' style=''><a href='' target='_self'>جک S5</a></li>
+                                                <li class='' style=''><a href='' target='_self'>جک S3</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class=' wz-menu-has-children' style=' width:50%'><a href='' target='_self'>ام وی
+                                            ام</a>
+                                        <div class='sub-menu'>
+                                            <ul>
+                                                <li class='' style=''><a href='' target='_self'>X22 Pro</a></li>
+                                                <li class='' style=''><a href='' target='_self'>X33</a></li>
+                                                <li class='' style=''><a href='' target='_self'>Phoenix FX</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class='' style=''><a href='https://theme58.mywebzi.ir/faq/' target='_self'>راهنمای خرید</a>
+                        </li>
+                        <li class='' style=''><a href='' target='_self'>تماس با ما</a></li>
+                        <li class='' style=''><a href='https://theme58.mywebzi.ir/blog/' target='_self'>بلاگ</a></li>
+                    </ul>
+                    <div class='wzc23-mobile wz-menu-toggle'><span class="line one"></span><span
+                            class="line two"></span><span class="line three"></span></div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+    <div class='wz-section-full wzc-section-allPage-full'>
+        <div id='wz-section-allPage' class='wz-section wzc-section-allPage wz-section-grid wz-section-empty'></div>
+    </div>
+    <div class='wz-section-full wzc-section-wzs5-full'>
+        <div id='wz-section-wzs5' class='wz-section wzc-section-wzs5 wz-section-grid'>
+            <div id='wze29' class='wz-element' data-widget='wz-gallery' data-grid-layout="normal"
+                 data-grid-layout-tablet="normal" data-grid-layout-mobile="normal" data-rows="3" data-columns="3"
+                 data-rows-tablet="3" data-columns-tablet="3" data-rows-mobile="3" data-columns-mobile="3">
+                <div class='wzc25 wz-template'>
+                    <div
+                        class="wzc25-slider flexslider wz-gallery wz-gallery-slider gallery-50449847c6ba339670326b6c232194fb"
+                        id="wze29-gallery">
+                        <ul class='wzc25-slider-items slides'>
+                            <li data-thumb='https://theme58.mywebzi.ir/uploads/de0aff8268d34cdfb829f94693eb5e30.jpg'>
+                                <div class='wz-slider-item'><img
+                                        src='https://theme58.mywebzi.ir/uploads/de0aff8268d34cdfb829f94693eb5e30.w_940,h_335,r_k.jpg'
+                                        alt='' class='wz-gallery-image'/><a href='https://theme58.mywebzi.ir/cars/'
+                                                                            target='_self'></a></div>
+                            </li>
+                            <li data-thumb='https://theme58.mywebzi.ir/uploads/ce7a290e43334183b062d2a56afd42be.jpg'>
+                                <div class='wz-slider-item'><img
+                                        src='https://theme58.mywebzi.ir/uploads/ce7a290e43334183b062d2a56afd42be.w_940,h_335,r_k.jpg'
+                                        alt='' class='wz-gallery-image'/><a href='https://theme58.mywebzi.ir/cars/'
+                                                                            target='_self'></a></div>
+                            </li>
+                            <li data-thumb='https://theme58.mywebzi.ir/uploads/3034639047b248c99fb74a8c0dd658d8.jpg'>
+                                <div class='wz-slider-item'><img
+                                        src='https://theme58.mywebzi.ir/uploads/3034639047b248c99fb74a8c0dd658d8.w_940,h_335,r_k.jpg'
+                                        alt='' class='wz-gallery-image'/><a href='https://theme58.mywebzi.ir/cars/'
+                                                                            target='_self'></a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a id='wze31' class='wz-element' data-widget='wz-image' href='https://theme58.mywebzi.ir/shop/'
+               target='_self'>
+                <div class='wzc26 wz-template'>
+                    <div class='wzc26-frame'></div>
+                    <div class='wzc26-img'><img class='wzc26-img-inner'
+                                                src="https://theme58.mywebzi.ir/uploads/2032f92f67ed4f50b8b2913b2456a00d.w_172,h_335,r_k.jpg"
+                                                alt="لوازم یدکی پژو"/></div>
+                </div>
+            </a></div>
+    </div>
+    <div class='wz-section-full wzc-section-wzs1-full'>
+        <div id='wz-section-wzs1' class='wz-section wzc-section-wzs1 wz-section-grid'><a id='wze32' class='wz-element'
+                                                                                         data-widget='wz-image'
+                                                                                         href='https://theme58.mywebzi.ir/shop/'
+                                                                                         target='_self'>
+                <div class='wzc26 wz-template'>
+                    <div class='wzc26-frame'></div>
+                    <div class='wzc26-img'><img class='wzc26-img-inner'
+                                                src="https://theme58.mywebzi.ir/uploads/2a3cb98543b048dfbd604ba182991b51.w_358,h_246,r_k.jpg"
+                                                alt="دیسک و صفحه"/></div>
+                </div>
+            </a><a id='wze37' class='wz-element' data-widget='wz-image' href='https://theme58.mywebzi.ir/shop/'
+                   target='_self'>
+                <div class='wzc26 wz-template'>
+                    <div class='wzc26-frame'></div>
+                    <div class='wzc26-img'><img class='wzc26-img-inner'
+                                                src="https://theme58.mywebzi.ir/uploads/0885457c18a948babc32af7767fb39d2.w_358,h_246,r_k.jpg"
+                                                alt="شمع خودرو"/></div>
+                </div>
+            </a><a id='wze38' class='wz-element' data-widget='wz-image' href='https://theme58.mywebzi.ir/shop/'
+                   target='_self'>
+                <div class='wzc26 wz-template'>
+                    <div class='wzc26-frame'></div>
+                    <div class='wzc26-img'><img class='wzc26-img-inner'
+                                                src="https://theme58.mywebzi.ir/uploads/568acc990b1a4aeaa1254fcfb569931d.w_358,h_246,r_k.jpg"
+                                                alt="روغن موتور"/></div>
+                </div>
+            </a></div>
+    </div>
+    <div class='wz-section-full wzc-section-wzs6-full'>
+        <div id='wz-section-wzs6' class='wz-section wzc-section-wzs6 wz-section-grid'>
+            <div id='wze63' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                 wz-fix-line-height2 wz-autoheight data-mobile-text-size="-0.1" data-text-change-size="true">
+                <div class='wzc4 wz-template'>
+                    <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                  style="font-size: 24px; line-height: normal;"><span
+                                style="color:rgb(var(--color_1_5));"><span
+                                    style="font-family:dana_fa,tahoma,serif;"><span style="font-size:24px;"><strong>منتخب پرفروش‌ها</strong></span></span></span>
+                        </h2></div>
+                </div>
+            </div>
+            <div id='wze64' class='wz-element' data-widget='wz-shop-product-list' wz-autoheight>
+                <div class='wzc61 wz-template'>
+                    <section class='wzc61-breadcrumb wz-shop-breadcrumb-container'></section>
+                    <div class="wzc61-container shop-product-list shop-product-list-rtl">
+                        <div
+                            class='flexslider wz-gallery wz-gallery-slider wz-gallery-carousel gallery-a127d8bf0bbfe782ea84eb4e3688d287'>
+                            <ul class='slides'>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1064-پمپ-هیدرولیک-تیب.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/86f5ef609a044b55813f1d0ae5212a6e.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1064-پمپ-هیدرولیک-تیب.html'>
+                                                    <h3 class='wz-shop-product-title'>پمپ هیدرولیک تیبا</h3></a>
+                                                <div class='wz-shop-product-out-stock'>اتمام موجودی</div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1059-چراغ-جلو-راست-موتوردار-تیبا.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/60d73c1f36214b42b3a031de89e8ae3e.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1059-چراغ-جلو-راست-موتوردار-تیبا.html'>
+                                                    <h3 class='wz-shop-product-title'>چراغ جلو راست موتوردار تیبا</h3>
+                                                </a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='630000'>۶۳۰,۰۰۰ تومان</span></div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1058-سرپلوس-تیبا.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/79a9e64e6c3d4d37bd8e0bb5f79e15ef.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1058-سرپلوس-تیبا.html'>
+                                                    <h3 class='wz-shop-product-title'>سرپلوس تیبا</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='900000'>۹۰۰,۰۰۰ تومان</span></div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1057-سپر-جلو-تیبا.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/200af9e79a2f4db395ac4438b6998fb5.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1057-سپر-جلو-تیبا.html'>
+                                                    <h3 class='wz-shop-product-title'>سپر جلو تیبا</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='521000'>۵۲۱,۰۰۰ تومان</span></div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'>
+                                                <div class='wz-shop-product-ribbon'>رنگ شده</div>
+                                            </div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1056-پمپ-هیدرولیک-پراید.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/86f5ef609a044b55813f1d0ae5212a6e.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1056-پمپ-هیدرولیک-پراید.html'>
+                                                    <h3 class='wz-shop-product-title'>پمپ هیدرولیک پراید</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='1821000'>۱,۸۲۱,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1055-سنسور-انژکتور-طرح-ساژم-پراید.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/912fddf38134441fa0ff8519e515f305.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1055-سنسور-انژکتور-طرح-ساژم-پراید.html'>
+                                                    <h3 class='wz-shop-product-title'>سنسور انژکتور طرح ساژم پراید</h3>
+                                                </a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='1800000'>۱,۸۰۰,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1054-دیسک-و-صفحه-پژو-206-تیپ-2.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/ada1fb5e6f554f9d946bea3bc257620f.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1054-دیسک-و-صفحه-پژو-206-تیپ-2.html'>
+                                                    <h3 class='wz-shop-product-title'>دیسک و صفحه پژو 206 تیپ 2</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='2300000'>۲,۳۰۰,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1053-دیسک-و-صفحه-پژو-206-تیپ-2.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/ada1fb5e6f554f9d946bea3bc257620f.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1053-دیسک-و-صفحه-پژو-206-تیپ-2.html'>
+                                                    <h3 class='wz-shop-product-title'>دیسک و صفحه پژو 206 تیپ 2</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='2300000'>۲,۳۰۰,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1052-رینگ-چرخ-برلیانس-h220.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/10914a00503540509dc24afe7c818983.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1052-رینگ-چرخ-برلیانس-h220.html'>
+                                                    <h3 class='wz-shop-product-title'>رینگ چرخ برلیانس H220</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='1060000'>۱,۰۶۰,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <section class='wzc61-topBar'></section>
+                    <section class='wzc61-filter'></section>
+                    <div class='wzc61-image-bg'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='wz-section-full wzc-section-wzs8-full'>
+        <div id='wz-section-wzs8' class='wz-section wzc-section-wzs8 wz-section-grid'><a id='wze65' class='wz-element'
+                                                                                         data-widget='wz-image'
+                                                                                         href='https://theme58.mywebzi.ir/shop/'
+                                                                                         target='_self'>
+                <div class='wzc26 wz-template'>
+                    <div class='wzc26-frame'></div>
+                    <div class='wzc26-img'><img class='wzc26-img-inner'
+                                                src="https://theme58.mywebzi.ir/uploads/95b2deae6eb84b80a77d9e63788317c7.w_1140,h_162,r_k.jpg"/>
+                    </div>
+                </div>
+            </a>
+            <div id='wze66' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                 wz-fix-line-height2 wz-autoheight data-mobile-text-size="-0.1" data-text-change-size="true">
+                <div class='wzc4 wz-template'>
+                    <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                  style="font-size: 24px; line-height: normal;"><span
+                                style="color:rgb(var(--color_1_5));"><span
+                                    style="font-family:dana_fa,tahoma,serif;"><span style="font-size:24px;"><strong>محصولات سایپا</strong></span></span></span>
+                        </h2></div>
+                </div>
+            </div>
+            <div id='wze108' class='wz-element' data-widget='wz-shop-product-list' wz-autoheight>
+                <div class='wzc61 wz-template'>
+                    <section class='wzc61-breadcrumb wz-shop-breadcrumb-container'></section>
+                    <div class="wzc61-container shop-product-list shop-product-list-rtl">
+                        <div
+                            class='flexslider wz-gallery wz-gallery-slider wz-gallery-carousel gallery-a127d8bf0bbfe782ea84eb4e3688d287'>
+                            <ul class='slides'>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1064-پمپ-هیدرولیک-تیب.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/86f5ef609a044b55813f1d0ae5212a6e.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1064-پمپ-هیدرولیک-تیب.html'>
+                                                    <h3 class='wz-shop-product-title'>پمپ هیدرولیک تیبا</h3></a>
+                                                <div class='wz-shop-product-out-stock'>اتمام موجودی</div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1059-چراغ-جلو-راست-موتوردار-تیبا.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/60d73c1f36214b42b3a031de89e8ae3e.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1059-چراغ-جلو-راست-موتوردار-تیبا.html'>
+                                                    <h3 class='wz-shop-product-title'>چراغ جلو راست موتوردار تیبا</h3>
+                                                </a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='630000'>۶۳۰,۰۰۰ تومان</span></div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1058-سرپلوس-تیبا.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/79a9e64e6c3d4d37bd8e0bb5f79e15ef.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1058-سرپلوس-تیبا.html'>
+                                                    <h3 class='wz-shop-product-title'>سرپلوس تیبا</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='900000'>۹۰۰,۰۰۰ تومان</span></div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1057-سپر-جلو-تیبا.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/200af9e79a2f4db395ac4438b6998fb5.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1057-سپر-جلو-تیبا.html'>
+                                                    <h3 class='wz-shop-product-title'>سپر جلو تیبا</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='521000'>۵۲۱,۰۰۰ تومان</span></div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'>
+                                                <div class='wz-shop-product-ribbon'>رنگ شده</div>
+                                            </div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1056-پمپ-هیدرولیک-پراید.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/86f5ef609a044b55813f1d0ae5212a6e.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1056-پمپ-هیدرولیک-پراید.html'>
+                                                    <h3 class='wz-shop-product-title'>پمپ هیدرولیک پراید</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='1821000'>۱,۸۲۱,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <section class='wzc61-topBar'></section>
+                    <section class='wzc61-filter'></section>
+                    <div class='wzc61-image-bg'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='wz-section-full wzc-section-wzs9-full'>
+        <div id='wz-section-wzs9' class='wz-section wzc-section-wzs9 wz-section-grid'><a id='wze68' class='wz-element'
+                                                                                         data-widget='wz-image'
+                                                                                         href='https://theme58.mywebzi.ir/shop/'
+                                                                                         target='_self'>
+                <div class='wzc26 wz-template'>
+                    <div class='wzc26-frame'></div>
+                    <div class='wzc26-img'><img class='wzc26-img-inner'
+                                                src="https://theme58.mywebzi.ir/uploads/64b97aed58814b3fa11b0421da171207.w_1137,h_162,r_k.jpg"
+                                                alt="لوازم ساینا و کوییک"/></div>
+                </div>
+            </a></div>
+    </div>
+    <div class='wz-section-full wzc-section-wzs10-full'>
+        <div id='wz-section-wzs10' class='wz-section wzc-section-wzs10 wz-section-grid'>
+            <div id='wze69' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                 wz-fix-line-height2 wz-autoheight data-mobile-text-size="-0.1" data-text-change-size="true">
+                <div class='wzc4 wz-template'>
+                    <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                  style="font-size: 24px; line-height: normal;"><span
+                                style="color:rgb(var(--color_1_5));"><span
+                                    style="font-family:dana_fa,tahoma,serif;"><span style="font-size:24px;"><strong>محصولات ایران‌خودرو</strong></span></span></span>
+                        </h2></div>
+                </div>
+            </div>
+            <div id='wze109' class='wz-element' data-widget='wz-shop-product-list' wz-autoheight>
+                <div class='wzc61 wz-template'>
+                    <section class='wzc61-breadcrumb wz-shop-breadcrumb-container'></section>
+                    <div class="wzc61-container shop-product-list shop-product-list-rtl">
+                        <div
+                            class='flexslider wz-gallery wz-gallery-slider wz-gallery-carousel gallery-a127d8bf0bbfe782ea84eb4e3688d287'>
+                            <ul class='slides'>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1064-پمپ-هیدرولیک-تیب.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/86f5ef609a044b55813f1d0ae5212a6e.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1064-پمپ-هیدرولیک-تیب.html'>
+                                                    <h3 class='wz-shop-product-title'>پمپ هیدرولیک تیبا</h3></a>
+                                                <div class='wz-shop-product-out-stock'>اتمام موجودی</div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1059-چراغ-جلو-راست-موتوردار-تیبا.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/60d73c1f36214b42b3a031de89e8ae3e.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1059-چراغ-جلو-راست-موتوردار-تیبا.html'>
+                                                    <h3 class='wz-shop-product-title'>چراغ جلو راست موتوردار تیبا</h3>
+                                                </a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='630000'>۶۳۰,۰۰۰ تومان</span></div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1058-سرپلوس-تیبا.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/79a9e64e6c3d4d37bd8e0bb5f79e15ef.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1058-سرپلوس-تیبا.html'>
+                                                    <h3 class='wz-shop-product-title'>سرپلوس تیبا</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='900000'>۹۰۰,۰۰۰ تومان</span></div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1057-سپر-جلو-تیبا.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/200af9e79a2f4db395ac4438b6998fb5.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1057-سپر-جلو-تیبا.html'>
+                                                    <h3 class='wz-shop-product-title'>سپر جلو تیبا</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='521000'>۵۲۱,۰۰۰ تومان</span></div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'>
+                                                <div class='wz-shop-product-ribbon'>رنگ شده</div>
+                                            </div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1056-پمپ-هیدرولیک-پراید.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/86f5ef609a044b55813f1d0ae5212a6e.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1056-پمپ-هیدرولیک-پراید.html'>
+                                                    <h3 class='wz-shop-product-title'>پمپ هیدرولیک پراید</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='1821000'>۱,۸۲۱,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1055-سنسور-انژکتور-طرح-ساژم-پراید.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/912fddf38134441fa0ff8519e515f305.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1055-سنسور-انژکتور-طرح-ساژم-پراید.html'>
+                                                    <h3 class='wz-shop-product-title'>سنسور انژکتور طرح ساژم پراید</h3>
+                                                </a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='1800000'>۱,۸۰۰,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1054-دیسک-و-صفحه-پژو-206-تیپ-2.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/ada1fb5e6f554f9d946bea3bc257620f.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1054-دیسک-و-صفحه-پژو-206-تیپ-2.html'>
+                                                    <h3 class='wz-shop-product-title'>دیسک و صفحه پژو 206 تیپ 2</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='2300000'>۲,۳۰۰,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1053-دیسک-و-صفحه-پژو-206-تیپ-2.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/ada1fb5e6f554f9d946bea3bc257620f.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1053-دیسک-و-صفحه-پژو-206-تیپ-2.html'>
+                                                    <h3 class='wz-shop-product-title'>دیسک و صفحه پژو 206 تیپ 2</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='2300000'>۲,۳۰۰,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
+                                            <div class='wz-element-background wz-shop-product-background'>
+                                                <div class='wzc62 wz-partial-template'>
+                                                    <div class='wzc62-bg'></div>
+                                                    <div
+                                                        class='wzc62-content wz-box-content wz-element-container'></div>
+                                                </div>
+                                            </div>
+                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1052-رینگ-چرخ-برلیانس-h220.html'
+                                               class='wz-shop-product-image'>
+                                                <div class='wzc6 wz-partial-template'>
+                                                    <div class='wzc6-frame'></div>
+                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                                               src="https://theme58.mywebzi.ir/uploads/10914a00503540509dc24afe7c818983.w_748,h_90,r_k.jpeg"
+                                                                               alt=""/>
+                                                        <div class='cover'></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class='wz-shop-product-section'><a
+                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1052-رینگ-چرخ-برلیانس-h220.html'>
+                                                    <h3 class='wz-shop-product-title'>رینگ چرخ برلیانس H220</h3></a>
+                                                <div class='wz-shop-product-price'><span
+                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
+                                                        id='' wz-data-product-price='1060000'>۱,۰۶۰,۰۰۰ تومان</span>
+                                                </div>
+                                            </div>
+                                            <div class='wz-shop-product-ribbons'></div>
+                                        </article>
+                                    </article>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <section class='wzc61-topBar'></section>
+                    <section class='wzc61-filter'></section>
+                    <div class='wzc61-image-bg'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{--    مقاله ها --}}
+    <div class='wz-section-full wzc-section-wzs11-full'>
+        <div class='wzc-section-wzs11-full-style'></div>
+        <div id='wz-section-wzs11' class='wz-section wzc-section-wzs11 wz-section-grid'>
+            <div id='wze88' class='wz-element' data-widget='wz-blog-list' data-handles='w, e' data-minwidth='200'
+                 wz-autoheight>
+                <div class='wzc42 wz-template'>
+                    <div class="wzc42-posts wz-blog-list wz-blog-list-layout2 wz-blog-list-rtl">
+                        <article class='wz-blog-post-item'><a
+                                href='https://theme58.mywebzi.ir/blog/uncategorized/P1063-راهنما-نگهداری-خودرو.html'
+                                class='wz-blog-post-thumbnail'>
+                                <div class='wzc26 wz-partial-template'>
+                                    <div class='wzc26-frame'></div>
+                                    <div class='wzc26-img'><img class='wzc26-img-inner'
+                                                                src="https://theme58.mywebzi.ir/uploads/30852c0b9b9040f1819acb924af631c5.w_768,h_168,r_k.jpg"/>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class='wz-blog-post-section'><a
+                                    href='https://theme58.mywebzi.ir/blog/uncategorized/P1063-راهنما-نگهداری-خودرو.html'>
+                                    <h3 class='wz-blog-post-title'>راهنما نگهداری خودرو</h3></a> <span
+                                    class='wz-blog-post-meta'>۰۴ مرداد ۰۱</span></div>
+                            <div class='clear'></div>
+                        </article>
+                        <article class='wz-blog-post-item'><a
+                                href='https://theme58.mywebzi.ir/blog/uncategorized/P1062-نکات-مهم-تعمیر-و-نگهداری-خودرو.html'
+                                class='wz-blog-post-thumbnail'>
+                                <div class='wzc26 wz-partial-template'>
+                                    <div class='wzc26-frame'></div>
+                                    <div class='wzc26-img'><img class='wzc26-img-inner'
+                                                                src="https://theme58.mywebzi.ir/uploads/3fd9245990d94da19351bea519e718d6.w_768,h_168,r_k.jpg"/>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class='wz-blog-post-section'><a
+                                    href='https://theme58.mywebzi.ir/blog/uncategorized/P1062-نکات-مهم-تعمیر-و-نگهداری-خودرو.html'>
+                                    <h3 class='wz-blog-post-title'>نکات مهم تعمیر و نگهداری خودرو</h3></a> <span
+                                    class='wz-blog-post-meta'>۰۴ مرداد ۰۱</span></div>
+                            <div class='clear'></div>
+                        </article>
+                        <article class='wz-blog-post-item'><a
+                                href='https://theme58.mywebzi.ir/blog/uncategorized/P1061-با-دوام-ترین-خودروهای-چینی-بازار-ایران.html'
+                                class='wz-blog-post-thumbnail'>
+                                <div class='wzc26 wz-partial-template'>
+                                    <div class='wzc26-frame'></div>
+                                    <div class='wzc26-img'><img class='wzc26-img-inner'
+                                                                src="https://theme58.mywebzi.ir/uploads/de8f84b5e04b46c3b7f7bc2f287645d4.w_768,h_168,r_k.jpeg"/>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class='wz-blog-post-section'><a
+                                    href='https://theme58.mywebzi.ir/blog/uncategorized/P1061-با-دوام-ترین-خودروهای-چینی-بازار-ایران.html'>
+                                    <h3 class='wz-blog-post-title'>با دوام ترین خودروهای چینی بازار ایران</h3></a> <span
+                                    class='wz-blog-post-meta'>۰۴ مرداد ۰۱</span></div>
+                            <div class='clear'></div>
+                        </article>
+                        <article class='wz-blog-post-item'><a
+                                href='https://theme58.mywebzi.ir/blog/uncategorized/P1060-چه-روغن-موتوری-در-خودرو-بریزیم.html'
+                                class='wz-blog-post-thumbnail'>
+                                <div class='wzc26 wz-partial-template'>
+                                    <div class='wzc26-frame'></div>
+                                    <div class='wzc26-img'><img class='wzc26-img-inner'
+                                                                src="https://theme58.mywebzi.ir/uploads/c8d33604be9b455397aff5cda22ea882.w_768,h_168,r_k.jpeg"/>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class='wz-blog-post-section'><a
+                                    href='https://theme58.mywebzi.ir/blog/uncategorized/P1060-چه-روغن-موتوری-در-خودرو-بریزیم.html'>
+                                    <h3 class='wz-blog-post-title'>چه روغن موتوری در خودرو بریزیم؟</h3></a> <span
+                                    class='wz-blog-post-meta'>۰۴ مرداد ۰۱</span></div>
+                            <div class='clear'></div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div id='wze92' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                 wz-fix-line-height2 wz-autoheight data-mobile-text-size="-0.1" data-text-change-size="true">
+                <div class='wzc4 wz-template'>
+                    <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                  style="font-size: 24px; line-height: normal;"><span
+                                style="color:rgb(var(--color_1_5));"><span
+                                    style="font-family:dana_fa,tahoma,serif;"><span style="font-size:24px;"><strong>آخرین نوشته‌های بلاگ</strong></span>​​​</span></span>
+                        </h2></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{--    فوتر--}}
+    <div class='wz-section-full wzc-section-footer-full' wz-background-scroll='none'>
+        <div class='wzc-section-footer-full-style'></div>
+        <div id='wz-section-footer' class='wz-section wzc-section-footer wz-section-grid'>
+            <div id='wze39' class='wz-element wz-element-full-width' data-widget='wz-box' data-minHeight='1'
+                 data-minWidth='1'>
+                <div class='wzc55 wz-template'>
+                    <div class='wzc55-bg'></div>
+                    <div class='wzc55-content wz-box-content wz-element-container'></div>
+                    <div class='wzc55-image-bg'></div>
+                </div>
+            </div>
+            <div id='wze43' class='wz-element' data-widget='wz-container'>
+                <div class='wzc9 wz-template'>
+                    <div class='wzc9-content wz-element-container'>
+                        <div id='wze40' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                             wz-fix-line-height2 wz-autoheight>
+                            <div class='wzc4 wz-template'>
+                                <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                              style="font-size: 21px; line-height: normal;">
+                                        <span style="color:rgb(var(--color_1_1));"><span
+                                                style="font-family:dana_fa,tahoma,serif;"><strong><span
+                                                        style="font-size:21px;">دسترسی سریع</span></strong></span></span>
+                                    </h2></div>
+                            </div>
+                        </div>
+                        <div id='wze42' class='wz-element' data-widget='wz-menu'>
+                            <div class='wzc63 wz-template'>
+                                <ul class="wzc63-list wz-menu wz-menu-vertical wz-menu-rtl wz-menu-effect-opacity wz-menu-align-right wz-menu-fill wz-classic-menu">
+                                    <li class=' active ' style=''><a href='https://theme58.mywebzi.ir/' target='_self'>صفحه
+                                            نخست</a></li>
+                                    <li class='' style=''><a href='https://theme58.mywebzi.ir/shop/' target='_self'>فروشگاه</a>
+                                    </li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                </ul>
+                                <div class='wzc63-mobile wz-menu-toggle'><span class="line one"></span><span
+                                        class="line two"></span><span class="line three"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='wze51' class='wz-element wz-element-full-width' data-widget='wz-box' data-minheight='1'
+                 data-minwidth='1'>
+                <div class='wzc29 wz-template'>
+                    <div class='wzc29-bg'></div>
+                    <div class='wzc29-content wz-box-content wz-element-container'>
+                        <div id='wze52' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                             wz-fix-line-height2 wz-autoheight>
+                            <div class='wzc4 wz-template'>
+                                <div class='wzc4-text wz-element-content'><p class="wz-font-p2" dir="rtl"
+                                                                             style="font-size: 14px; line-height: 1.8em;">
+                                        <span style="color:rgb(var(--color_2_2));"><span style="font-size:14px;"><span
+                                                    style="font-family:dana_fa,tahoma,serif;">تمام حقوق این سایت محفوظ است</span></span></span>
+                                    </p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='wzc29-image-bg'></div>
+                </div>
+            </div>
+            <div id='wze57' class='wz-element' data-widget='wz-container'>
+                <div class='wzc9 wz-template'>
+                    <div class='wzc9-content wz-element-container'>
+                        <div id='wze48' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                             wz-fix-line-height2 wz-autoheight>
+                            <div class='wzc4 wz-template'>
+                                <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                              style="font-size: 21px; line-height: normal;">
+                                        <span style="color:rgb(var(--color_1_1));"><span
+                                                style="font-family:dana,tahoma,serif;"><strong><span
+                                                        style="font-size:21px;">درباره ما</span></strong></span></span>
+                                    </h2></div>
+                            </div>
+                        </div>
+                        <div id='wze49' class='wz-element' data-widget='wz-image'>
+                            <div class='wzc6 wz-template'>
+                                <div class='wzc6-frame'></div>
+                                <div class='wzc6-img'><img class='wzc6-img-inner'
+                                                           src="https://theme58.mywebzi.ir/uploads/d589e1298fc64f1ebeea4720a3f8727d.w_46,h_46,r_k.png"
+                                                           alt="لوگو"/></div>
+                            </div>
+                        </div>
+                        <div id='wze50' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                             wz-fix-line-height2 wz-autoheight>
+                            <div class='wzc4 wz-template'>
+                                <div class='wzc4-text wz-element-content'><p class="wz-font-p2" dir="rtl"
+                                                                             style="font-size: 14px; line-height: 1.8em;">
+                                        <span style="color:rgb(var(--color_2_2));"><span style="font-size:14px;"><span
+                                                    style="font-family:dana_fa,tahoma,serif;">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته است.</span></span></span>
+                                    </p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='wze58' class='wz-element' data-widget='wz-image'>
+                <div class='wzc6 wz-template'>
+                    <div class='wzc6-frame'></div>
+                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                               src="https://theme58.mywebzi.ir/uploads/862dfe0fef674e06b9407144b68fc532.w_98,h_107,r_k.png"
+                                               alt="اینماد"/></div>
+                </div>
+            </div>
+            <div id='wze59' class='wz-element' data-widget='wz-image'>
+                <div class='wzc6 wz-template'>
+                    <div class='wzc6-frame'></div>
+                    <div class='wzc6-img'><img class='wzc6-img-inner'
+                                               src="https://theme58.mywebzi.ir/uploads/8b783842550f4b088251782865d411bf.w_91,h_105,r_k.png"
+                                               alt="ساماندهی"/></div>
+                </div>
+            </div>
+            <div id='wze113' class='wz-element' data-widget='wz-container'>
+                <div class='wzc9 wz-template'>
+                    <div class='wzc9-content wz-element-container'>
+                        <div id='wze61' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                             wz-fix-line-height2 wz-autoheight>
+                            <div class='wzc4 wz-template'>
+                                <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                              style="font-size: 21px; line-height: normal;">
+                                        <span style="color:rgb(var(--color_1_1));"><span
+                                                style="font-family:dana,tahoma,serif;"><strong><span
+                                                        style="font-size:21px;">دسته‌بندی‌ها</span></strong></span></span>
+                                    </h2></div>
+                            </div>
+                        </div>
+                        <div id='wze112' class='wz-element' data-widget='wz-menu'>
+                            <div class='wzc63 wz-template'>
+                                <ul class="wzc63-list wz-menu wz-menu-vertical wz-menu-rtl wz-menu-effect-opacity wz-menu-align-right wz-menu-fill wz-classic-menu">
+                                    <li class=' active ' style=''><a href='https://theme58.mywebzi.ir/' target='_self'>صفحه
+                                            نخست</a></li>
+                                    <li class='' style=''><a href='https://theme58.mywebzi.ir/shop/' target='_self'>فروشگاه</a>
+                                    </li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                </ul>
+                                <div class='wzc63-mobile wz-menu-toggle'><span class="line one"></span><span
+                                        class="line two"></span><span class="line three"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='wze114' class='wz-element' data-widget='wz-container'>
+                <div class='wzc9 wz-template'>
+                    <div class='wzc9-content wz-element-container'>
+                        <div id='wze55' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                             wz-fix-line-height2 wz-autoheight>
+                            <div class='wzc4 wz-template'>
+                                <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                              style="font-size: 21px; line-height: normal;">
+                                        <span style="color:rgb(var(--color_1_1));"><span
+                                                style="font-family:dana,tahoma,serif;"><strong><span
+                                                        style="font-size:21px;">دسته‌بندی‌ها</span></strong></span></span>
+                                    </h2></div>
+                            </div>
+                        </div>
+                        <div id='wze111' class='wz-element' data-widget='wz-menu'>
+                            <div class='wzc63 wz-template'>
+                                <ul class="wzc63-list wz-menu wz-menu-vertical wz-menu-rtl wz-menu-effect-opacity wz-menu-align-right wz-menu-fill wz-classic-menu">
+                                    <li class=' active ' style=''><a href='https://theme58.mywebzi.ir/' target='_self'>صفحه
+                                            نخست</a></li>
+                                    <li class='' style=''><a href='https://theme58.mywebzi.ir/shop/' target='_self'>فروشگاه</a>
+                                    </li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                </ul>
+                                <div class='wzc63-mobile wz-menu-toggle'><span class="line one"></span><span
+                                        class="line two"></span><span class="line three"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='wze115' class='wz-element' data-widget='wz-container'>
+                <div class='wzc9 wz-template'>
+                    <div class='wzc9-content wz-element-container'>
+                        <div id='wze44' class='wz-element' data-widget='wz-text' data-handles='w, e' data-minwidth='10'
+                             wz-fix-line-height2 wz-autoheight>
+                            <div class='wzc4 wz-template'>
+                                <div class='wzc4-text wz-element-content'><h2 class="wz-font-h2" dir="rtl"
+                                                                              style="font-size: 21px; line-height: normal;">
+                                        <span style="color:rgb(var(--color_1_1));"><span
+                                                style="font-family:dana,tahoma,serif;"><strong><span
+                                                        style="font-size:21px;">دسته‌بندی‌ها</span></strong></span></span>
+                                    </h2></div>
+                            </div>
+                        </div>
+                        <div id='wze110' class='wz-element' data-widget='wz-menu'>
+                            <div class='wzc63 wz-template'>
+                                <ul class="wzc63-list wz-menu wz-menu-vertical wz-menu-rtl wz-menu-effect-opacity wz-menu-align-right wz-menu-fill wz-classic-menu">
+                                    <li class=' active ' style=''><a href='https://theme58.mywebzi.ir/' target='_self'>صفحه
+                                            نخست</a></li>
+                                    <li class='' style=''><a href='https://theme58.mywebzi.ir/shop/' target='_self'>فروشگاه</a>
+                                    </li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                    <li class='' style=''><a href='' target='_self'>آیتم جدید</a></li>
+                                </ul>
+                                <div class='wzc63-mobile wz-menu-toggle'><span class="line one"></span><span
+                                        class="line two"></span><span class="line three"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wz-user-modal">
+        <div class="wz-user-modal-container">
+            <ul class="wz-user-modal-switcher">
+                <li><a href="#0"> fvkh</a></li>
+                <li><a href="#0">ثبت نام</a></li>
+            </ul>
+            <div id="wz-login">
+                <form class="wz-user-modal-form"><p class="fieldset"><input wz-validate="required,mailOrMobile"
+                                                                            wz-validate-required="ایمیل یا شماره همراه خود را وارد کنید."
+                                                                            wz-validate-mailOrMobile="ایمیل یا شماره همراه معتبر نمی‌باشد."
+                                                                            required
+                                                                            class="full-width has-padding has-border"
+                                                                            name="email" id="login-email"> <label
+                            class="placeholder" for="login-email">ایمیل یا شماره همراه</label> <span
+                            class="wz-form-error-message"></span></p>
+                    <p class="fieldset"><input required class="full-width has-padding has-border" name="password"
+                                               id="login-password" wz-validate="required,minLength"
+                                               wz-validate-required="کلمه عبور خود را وارد کنید."
+                                               wz-validate-minLength="کلمه عبور بسیار کوتاه می باشد." ,
+                                               wz-min-length="6" type="password"> <label class="placeholder"
+                                                                                         for="login-password">کلمه
+                            عبور</label> <span class="wz-form-error-message"></span></p>
+                    <p class="fieldset"><input class="regular-checkbox" type="checkbox" id="remember-me" checked> <label
+                            for="remember-me" class="regular-checkbox-label"></label> <label for="remember-me">مرا به
+                            خاطر بسپار</label></p>
+                    <p class="fieldset"><input class="full-width" type="submit" value="ورود"></p></form>
+                <p class="wz-user-modal-bottom-message"><a href="#0">رمز عبورتان را فراموش کرده‌اید؟</a></p></div>
+            <div id="wz-register">
+                <form class="wz-user-modal-form" data-required-mobile="disable"><p class="fieldset"><input required
+                                                                                                           autocomplete="off"
+                                                                                                           wz-validate="required,mailOrMobile"
+                                                                                                           wz-validate-required="ایمیل یا شماره همراه خود را وارد کنید."
+                                                                                                           wz-validate-mailOrMobile="ایمیل یا شماره همراه معتبر نمی‌باشد."
+                                                                                                           class="full-width has-padding has-border"
+                                                                                                           name="email"
+                                                                                                           id="register-email">
+                        <label class="placeholder" for="register-email">ایمیل یا شماره همراه</label> <span
+                            class="wz-form-error-message"></span></p>
+                    <p class="fieldset"><input required autocomplete="off" wz-validate="required,minLength"
+                                               wz-validate-required="کلمه عبور خود را وارد کنید."
+                                               wz-validate-minLength="کلمه عبور بسیار کوتاه می باشد." ,
+                                               wz-min-length="6" class="full-width has-padding has-border"
+                                               name="password" id="register-password" type="password"> <label
+                            class="placeholder" for="register-password">کلمه عبور</label> <span
+                            class="wz-form-error-message"></span></p>
+                    <p class="fieldset"><input class="full-width has-padding" type="submit" value="ثبت نام"></p></form>
+            </div>
+            <div id="wz-reset-password"><p class="wz-user-modal-message">ثبت کلمه عبور خود را فراموش کرده‌اید؟ لطفا
+                    شماره همراه یا آدرس ایمیل خودتان را وارد کنید. شما به زودی یک ایمیل یا اس ام اس برای ایجاد کلمه عبور
+                    جدید، دریافت خواهید کرد.</p>
+                <form class="wz-user-modal-form"><p class="fieldset"><input wz-validate="required,mailOrMobile"
+                                                                            wz-validate-required="ایمیل یا شماره همراه خود را وارد کنید."
+                                                                            wz-validate-mailOrMobile="ایمیل یا شماره همراه معتبر نمی‌باشد."
+                                                                            required
+                                                                            class="full-width has-padding has-border"
+                                                                            name="email" id="reset-email"> <label
+                            class="placeholder" for="reset-email">ایمیل یا شماره همراه</label> <span
+                            class="wz-form-error-message"></span></p>
+                    <p class="fieldset"><input class="full-width has-padding" type="submit" value="بازیابی کلمه عبور">
+                    </p></form>
+                <p class="wz-user-modal-bottom-message"><a href="#0">بازگشت به بخش ورود</a></p></div>
+            <div id="wz-reset-password-code"><p class="wz-user-modal-message">کد دریافتی را وارد نمایید.</p>
+                <form class="wz-user-modal-form"><input type="hidden" name="user">
+                    <p class="fieldset"><input wz-validate="required" wz-validate-required="کد دریافتی را وارد نمایید."
+                                               required class="full-width has-padding has-border" name="key"
+                                               id="reset-key"> <label class="placeholder" for="reset-key">کد
+                            بازیابی</label> <span class="wz-form-error-message"></span></p>
+                    <p class="fieldset"><input class="full-width has-padding" type="submit" value="بازیابی کلمه عبور">
+                    </p></form>
+                <p class="wz-user-modal-bottom-message"><a href="#0">بازگشت به بخش ورود</a></p></div>
+            <div id="wz-verify-register">
+                <form class="wz-user-modal-form"><p class="fieldset"><input type="hidden" name="email"
+                                                                            style="display: none"> <input
+                            wz-validate="required" wz-validate-required="کد دریافتی را وارد نمایید." required
+                            class="full-width has-padding has-border" name="key" id="reset-key"> <label
+                            class="placeholder" for="reset-key">کد تایید</label> <span
+                            class="wz-form-error-message"></span></p>
+                    <p class="fieldset"><input required class="full-width has-padding has-border" name="first_name"
+                                               id="wz-member-profile-first-name" wz-validate="required"
+                                               wz-validate-required="نام خود را وارد کنید." maxlength="45" type="text">
+                        <label class="placeholder" for="wz-member-profile-first-name">نام *</label> <span
+                            class="wz-form-error-message"></span></p>
+                    <p class="fieldset"><input required class="full-width has-padding has-border" name="last_name"
+                                               wz-validate="required"
+                                               wz-validate-required="نام خانوادگی خود را وارد کنید."
+                                               id="wz-member-profile-last-name" maxlength="45" type="text"> <label
+                            class="placeholder" for="wz-member-profile-last-name">نام‌خانوادگی *</label> <span
+                            class="wz-form-error-message"></span></p>
+                    <p class="fieldset"><input required autocomplete="off" wz-validate="required,minLength"
+                                               wz-validate-required="کلمه عبور خود را وارد کنید."
+                                               wz-validate-minLength="کلمه عبور بسیار کوتاه می باشد." ,
+                                               wz-min-length="6" class="full-width has-padding has-border"
+                                               name="password" id="register-password" type="password"> <label
+                            class="placeholder" for="register-password">کلمه عبور</label> <span
+                            class="wz-form-error-message"></span></p>
+                    <p class="fieldset"><input class="full-width has-padding" type="submit" value="ثبت نام"></p></form>
+            </div>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="wz-member-password-reset" data-remodal-options="closeOnOutsideClick: false">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        <h3 class="wz-modal-header">تغییر کلمه عبور</h3>
+        <section class="wz-site-form wz-member-reset-password-form">
+            <form><p class="fieldset"><input required class="full-width has-padding has-border" name="new_password"
+                                             id="wz-member-reset-new-password" wz-validate="required,minLength"
+                                             wz-min-length="6" wz-validate-minLength="کلمه عبور باید حداقل 6 حرف باشد."
+                                             , wz-validate-required="کلمه عبور خود را وارد کنید." maxlength="45"
+                                             autocomplete="off" type="password"> <label class="placeholder"
+                                                                                        for="wz-member-reset-new-password">کلمه
+                        عبور جدید</label> <span class="wz-form-error-message"></span></p></form>
+        </section>
+        <div class="wz-remodal-footer-buttons"><a href="#" id="wz-member-password-reset"
+                                                  class="wz-default-button wz-default-button-primary">ذخیره</a> <a
+                data-remodal-action="cancel" href="#" class="wz-default-button wz-default-button-warning">انصراف</a>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="wz-member-password-edit" data-remodal-options="hashTracking: false">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        <h3 class="wz-modal-header">تغییر کلمه عبور</h3>
+        <section class="wz-site-form wz-member-change-password-form">
+            <form><p class="fieldset"><input required class="full-width has-padding has-border" name="current_password"
+                                             id="wz-member-change-password" wz-validate="required,minLength"
+                                             wz-min-length="6" wz-validate-minLength="کلمه عبور باید حداقل 6 حرف باشد."
+                                             , wz-validate-required="کلمه عبور خود را وارد کنید." maxlength="45"
+                                             autocomplete="off" type="password"> <label class="placeholder"
+                                                                                        for="wz-member-change-password">کلمه
+                        عبور قدیم</label> <span class="wz-form-error-message"></span></p>
+                <p class="fieldset"><input required class="full-width has-padding has-border" name="new_password"
+                                           id="wz-member-change-new-password" wz-validate="required,minLength"
+                                           wz-min-length="6" wz-validate-minLength="کلمه عبور باید حداقل 6 حرف باشد." ,
+                                           wz-validate-required="کلمه عبور خود را وارد کنید." maxlength="45"
+                                           autocomplete="off" type="password"> <label class="placeholder"
+                                                                                      for="wz-member-change-new-password">کلمه
+                        عبور جدید</label> <span class="wz-form-error-message"></span></p></form>
+        </section>
+        <div class="wz-remodal-footer-buttons"><a href="#" id="wz-member-password-save"
+                                                  class="wz-default-button wz-default-button-primary">ذخیره</a> <a
+                data-remodal-action="cancel" href="#" class="wz-default-button wz-default-button-warning">انصراف</a>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="wz-member-profile-edit" data-remodal-options="hashTracking: false">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        <h3 class="wz-modal-header">حساب کاربری من</h3>
+        <section class="wz-site-form wz-member-profile-form">
+            <form>
+                <p class="fieldset "><label class="inline-label">جنسیت</label> <select name="gender">
+                        <option value='1'>مرد</option>
+                        <option value='2'>زن</option>
+                    </select></p>
+                <p class="fieldset"><input required class="full-width has-padding has-border" name="first_name"
+                                           id="wz-member-profile-first-name" wz-validate="required"
+                                           wz-validate-required="نام خود را وارد کنید." maxlength="45" type="text">
+                    <label class="placeholder" for="wz-member-profile-first-name">نام *</label> <span
+                        class="wz-form-error-message"></span></p>
+                <p class="fieldset"><input required class="full-width has-padding has-border" name="last_name"
+                                           wz-validate="required" wz-validate-required="نام خانوادگی خود را وارد کنید."
+                                           id="wz-member-profile-last-name" maxlength="45" type="text"> <label
+                        class="placeholder" for="wz-member-profile-last-name">نام‌خانوادگی *</label> <span
+                        class="wz-form-error-message"></span></p>
+                <p class="fieldset"><input required class="full-width has-padding has-border" name="mobile"
+                                           id="wz-member-profile-mobile" wz-validate="required,mobile"
+                                           wz-validate-required="تلفن همراه خود را وارد کنید."
+                                           wz-validate-mobile="تلفن همراه خود را اشتباه وارد کرده‌اید." type="text">
+                    <label class="placeholder" for="wz-member-profile-mobile">تلفن همراه *</label> <span
+                        class="wz-form-error-message"></span></p>
+                <p class="fieldset"><input wz-validate="required,minLength,mail"
+                                           wz-validate-required="ایمیل خود را وارد کنید."
+                                           wz-validate-mail="ایمیل معتبر نمی‌باشد."
+                                           wz-validate-minLength="ایمیل باید حداقل 6 حرف باشد." wz-min-length="6"
+                                           required class="full-width has-padding has-border" name="email"
+                                           id="wz-member-email"> <label class="placeholder" for="wz-member-email">ایمیل
+                        *</label> <span class="wz-form-error-message"></span></p>
+                <p class="fieldset"><input required class="full-width has-padding has-border" name="current_password"
+                                           id="wz-member-profile-password" wz-validate="required,minLength"
+                                           wz-min-length="6" wz-validate-minLength="کلمه عبور باید حداقل 6 حرف باشد."
+                                           wz-validate-required="کلمه عبور خود را وارد کنید." maxlength="45"
+                                           type="password"> <label class="placeholder" for="wz-member-profile-password">کلمه
+                        عبور فعلی *</label> <span class="wz-form-error-message"></span></p></form>
+        </section>
+        <div class="wz-remodal-footer-buttons"><a href="#" id="wz-member-profile-save"
+                                                  class="wz-default-button wz-default-button-primary">ذخیره</a> <a
+                data-remodal-action="cancel" href="#" class="wz-default-button wz-default-button-warning">انصراف</a>
+        </div>
+    </div>
+    <div class="remodal" data-remodal-id="wz-member-order-list" data-remodal-options="hashTracking: false">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        <h3 class="wz-modal-header">سفارشات</h3>
+        <section id="wz-member-order-items"></section>
+    </div>
+    <div class="remodal" data-remodal-id="wz-member-order-item" data-remodal-options="hashTracking: false">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        <h3 class="wz-modal-header">مشاهده سفارش</h3>
+        <section id="wz-member-order-item-details"></section>
+    </div>
+    <script> var wzMemberOrderItemDetailsTemplate = `<div class="wz-member-order-item-order-details"> <div class="wz-member-order-item-order-details-row"> <div class="wz-member-order-item-order-details-col"> <label>تحویل گیرنده:</label> <div><%- order.customer_name.toString() %></div> </div> <div class="wz-member-order-item-order-details-col"> <label>شماره فاکتور:</label> <div><%- order.id.toString().convertToLocalNumber() %></div> </div> </div> <div class="wz-member-order-item-order-details-row"> <div class="wz-member-order-item-order-details-col"> <label>آدرس تحویل گیرنده:</label> <div><span class="customer-province"><%- order.customer_province.toString() %>-<%- order.customer_city.toString() %>-</span><%- order.customer_address.toString() %> </div> </div> <div class="wz-member-order-item-order-details-col"> <label>شماره تماس گیرنده:</label> <div><%- order.customer_mobile.toString().convertToLocalNumber() %></div> </div> </div> <div class="wz-member-order-item-order-details-row"> <div class="wz-member-order-item-order-details-col"> <label>روش ارسال:</label> <div><%- order.shipping_name.toString() %></div> </div> <div class="wz-member-order-item-order-details-col"> <label>هزینه ارسال:</label> <div><%- (Number(order.total_shipping).toString().formatNumber().convertToLocalNumber() + currency_sign) %> </div> </div> </div> <div class="wz-member-order-item-order-details-row"> <div class="wz-member-order-item-order-details-col"> <label>روش پرداخت:</label> <div><%- order.payment_method_name.toString() %></div> </div> <div class="wz-member-order-item-order-details-col"> <label>مبلغ کل:</label> <div><%- (Number(order.total).toString().formatNumber().convertToLocalNumber() + currency_sign) %> </div> </div> </div> <% if(order.tracking_number) { %> <div class="wz-member-order-item-order-details-row"> <div class="wz-member-order-item-order-details-col" style="max-width: 100%"> <label>کد پیگیری ارسال:</label> <div><%- order.tracking_number.toString() %></div> </div> </div> <% } %> </div> <div class="wz-member-order-item-order-products"> <div class="wz-member-order-item-order-products-head"> <div class="wz-member-order-item-order-products-row"> <div class="wz-member-order-item-order-products-col wz-member-order-item-order-product-name"> نام محصول </div> <div class="wz-member-order-item-order-products-col wz-member-order-item-order-product-quantity"> تعداد </div> <div class="wz-member-order-item-order-products-col">قیمت واحد</div> <div class="wz-member-order-item-order-products-col">قیمت کل</div> <div class="wz-member-order-item-order-products-col">تخفیف</div> <div class="wz-member-order-item-order-products-col">قیمت نهایی</div> </div> </div> <% $.each(products, function(index,product) { %> <div class="wz-member-order-item-order-products-row"> <div class="wz-member-order-item-order-products-col wz-member-order-item-order-product-name"> <div class="inner"> <img src="<%- product.thumbnail %>"><span><%- product.name %></span> </div> <div> <% if(product.download) { %> <a target="_blank" href="<%- product.download %>" class="download" href="#">دانلود</a> <% } %> <a target="_blank" href="<%- product.url %>" class="download" href="#">مشاهده</a> </div> </div> <div class="wz-member-order-item-order-products-col wz-member-order-item-order-product-quantity"><%- product.quantity %> </div> <div class="wz-member-order-item-order-products-col"><%- (Number(product.original_price).toString().formatNumber().convertToLocalNumber() + currency_sign) %> </div> <div class="wz-member-order-item-order-products-col"><%- (Number(product.original_price*product.quantity).toString().formatNumber().convertToLocalNumber() + currency_sign) %> </div> <div class="wz-member-order-item-order-products-col"><%- (Number(product.discount).toString().formatNumber().convertToLocalNumber() + currency_sign) %> </div> <div class="wz-member-order-item-order-products-col"><%- (Number(product.total).toString().formatNumber().convertToLocalNumber() + currency_sign) %> </div> </div> <% if(product.messages) { %> <% $.each(product.messages, function(messageId,message) { %> <div class='wz-member-order-item-order-products-note'> <%= message %> </div> <% }); %> <% }; %> <% }); %> </div>`;
+        var wzMemberOrderListTemplate = ` <% if(!orders.length) { %> <p class="wz-order-list-empty">شما هنوز هیچ سفارشی ثبت نکرده‌اید.</p> <% } else { %> <ul> <li class="wz-order-item"> <div>شماره سفارش</div> <div>تاریخ سفارش</div> <div>پرداخت</div> <div>وضعیت</div> <div>جمع نهایی</div> </li> <% $.each(orders, function(index,order) { %> <li class="wz-order-item"> <div><%- order.id.toString().convertToLocalNumber() %></div> <div><%- order.added_at.toString().convertToLocalNumber() %></div> <div><%- order.payment_method %></div> <div><%- order.status %></div> <div><%- (order.total.toString().formatNumber().convertToLocalNumber() + currency_sign) %></div> </li> <li class="wz-order-item wz-order-item-details"><div><a data-id="<%- order.id.toString() %>" href="#" class="wz-member-order-item-details">جزئیات</a><a target="_blank" data-order="<%- order.id.toString() %>" class="wz-shop-repurchase-order" href="#">خرید مجدد</a> <a target="_blank" href="https://theme58.mywebzi.ir/shop/cart/invoice?order_id=<%- order.id %>" class="wz-shop-order-invoice" href="#">فاکتور</a></div> </li> <% }); %> </ul> <% } %>`;</script>
+    <div class="wz-shop-mini-cart-container">
+        <div class="wz-shop-mini-cart">
+            <header>
+                <div class="text">سبد خرید</div>
+                <div class="close-button">
+                    <div class="line one"></div>
+                    <div class="line two"></div>
+                </div>
+            </header>
+            <section class="cart-content">
+                <ul class="cart-product-list"></ul>
+                <script
+                    id="shop-cart-item"> var shopCartItemTemplate = `<li> <div class="cart-item-image"> <a href="<%- item.url %>"> <img src="<%- (item.thumbnail.toString().thumb(80, 80, 'c')) %>"> </a> </div> <div class="cart-item-info"> <div class="cart-item-name"> <%- item.title %> </div> <% if(item.model) { %> <div class="cart-item-model"><%- item.model %></div> <% } %> <div class="cart-item-quantity"><span>تعداد: </span> <div class="quantity buttons_added"><input type="button" value="-" class="minus"> <input data-price="<%- item.price %>" data-id="<%- item.id %>" data-quantity="<%- item.quantity %>" type="number" step="1" min="1" name="quantity" value="<%- item.quantity %>" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus"></div> </div> <div class="cart-item-price"> <% if(item.compare_price) { %> <span class="cart-item-price-compare"> <%- ((item.compare_price.toString().formatNumber().convertToLocalNumber()) + currency_sign) %> </span> <% } %> <span> <%- ((item.price.toString().formatNumber().convertToLocalNumber()) + currency_sign) %> </span> </div> </div> <div data-id="<%- item.id %>" class="cart-remove-item"></div> </li>`; </script>
+                <div class="cart-shop-mini-subtotal"><label>جمع کل</label> <span class="price"></span></div>
+            </section>
+            <footer>
+                <div class="wz-buttons"><a href="https://theme58.mywebzi.ir/shop/cart"
+                                           class="wz-default-button cart-shop-mini-button">مشاهده سبد خرید</a> <a
+                        href="https://theme58.mywebzi.ir/shop/checkout"
+                        class="wz-default-button cart-shop-mini-button cart-shop-mini-button-primary">تسویه حساب</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script type="text/javascript">var currency_sign = " تومان";
+        var site_url = "https://theme58.mywebzi.ir/";
+        var upload_url = "https://theme58.mywebzi.ir/uploads/";
+        var site_api_url = "https://theme58.mywebzi.ir/api/";
+        var static_uri = "https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/";</script>
+    <script type="text/javascript"
+            src="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/bower_components/persian-date/dist/persian-date.min.js"></script>
+    <script type="text/javascript" src="https://webzi.ir/static/2.0.0/editor/js/modernizr-custom.js"></script>
+    <script type="text/javascript"
+            src="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+    <script type="text/javascript"
+            src="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/bower_components/lodash/dist/lodash.min.js"></script>
+    <script type="text/javascript"
+            src="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/bower_components/flexslider/jquery.flexslider-min.js"></script>
+    <script type="text/javascript"
+            src="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/js/animation.js"></script>
+    <script type="text/javascript"
+            src="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/bower_components/remodal/dist/remodal.min.js"></script>
+    <script type="text/javascript"
+            src="https://theme58.mywebzi.ir/static/bEHf0084/2.0.0/editor/js/frontBase.js"></script>
+    <script type="text/javascript" src="https://theme58.mywebzi.ir/theme-1683047778/js/main.js"></script>
+</div>
+</body>
 </html>
