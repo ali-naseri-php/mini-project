@@ -47,7 +47,7 @@ class loginController extends Controller
         // تلاش برای ورود
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // ورود موفقیت‌آمیز
-            return redirect()->intended('/dashboard')->with('success', 'با موفقیت وارد شدید!');
+            return redirect()->intended('/')->with('success', 'با موفقیت وارد شدید!');
         }
 
         // ورود ناموفق
