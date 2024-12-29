@@ -177,10 +177,15 @@
                     <div class='wzc11-content wz-box-content wz-element-container'>
                         <div id='wze107' class='wz-element' data-widget='wz-member' data-handles='a'>
                             <div class='wzc59 wz-template'>
-                                <div class='wzc59-links wz-member-links'><a href='#' class='wz-member-link wz-login'>ورود</a><span
-                                        class='wz-member-separate'>/</span><a href='#'
-                                                                              class='wz-member-link wz-register'>ثبت نام
-                                        در سایت</a></div>
+                                @if(! Auth::check())
+                                <div class='wzc59-links wz-member-links'><button  onclick="window.location='{{route('form.login') }}'" class="btn btn-dark">ورود</button><span
+                                        class='wz-member-separate'>/</span><button  onclick="window.location='{{route('form.register') }}'" class="btn btn-dark">ثبت نام</button>
+
+                                @else
+                                    <div class='wzc59-links wz-member-links'><button  onclick="window.location='{{route('logout') }}'" class="btn btn-dark">خروج</button><span
+                                            class='wz-member-separate'></span></div>
+
+                                @endif
                                 <div class='wzc59-actions wz-member-actions'>
                                     <ul>
                                         <li href='#' id='wz-member-profile'><a>حساب کاربری من</a></li>
@@ -1625,6 +1630,7 @@
             </div>
         </div>
     </div>
+{{--    فرم لاگین --}}
     <div class="wz-user-modal">
         <div class="wz-user-modal-container">
             <ul class="wz-user-modal-switcher">

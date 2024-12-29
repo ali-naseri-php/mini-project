@@ -71,6 +71,7 @@
 <form class="login-form" action="{{route('login')}}" method="POST">
     <h2>ورود</h2>
     <div class="form-group">
+        @csrf
         <label for="email">ایمیل:</label>
         <input type="email" id="email" name="email" required>
     </div>
@@ -82,7 +83,7 @@
         <button type="submit">ورود</button>
     </div>
     <div class="form-footer">
-        <a href="/forgot-password">اکانت ندارید ؟؟ بسازید </a>
+        <a href="{{route('form.register')}}">اکانت ندارید ؟؟ بسازید </a>
     </div>
 </form>
 </body>
