@@ -1338,70 +1338,26 @@
                  wz-autoheight>
                 <div class='wzc42 wz-template'>
                     <div class="wzc42-posts wz-blog-list wz-blog-list-layout2 wz-blog-list-rtl">
-                        <article class='wz-blog-post-item'><a
+                       @foreach($articles as $article)
+
+                        <article class='wz-blog-post-item'>
+                            <a
                                 href='https://theme58.mywebzi.ir/blog/uncategorized/P1063-راهنما-نگهداری-خودرو.html'
                                 class='wz-blog-post-thumbnail'>
                                 <div class='wzc26 wz-partial-template'>
                                     <div class='wzc26-frame'></div>
                                     <div class='wzc26-img'><img class='wzc26-img-inner'
-                                                                src="https://theme58.mywebzi.ir/uploads/30852c0b9b9040f1819acb924af631c5.w_768,h_168,r_k.jpg"/>
+                                                                src="{{$article->image}}"/>
                                     </div>
                                 </div>
                             </a>
                             <div class='wz-blog-post-section'><a
                                     href='https://theme58.mywebzi.ir/blog/uncategorized/P1063-راهنما-نگهداری-خودرو.html'>
-                                    <h3 class='wz-blog-post-title'>راهنما نگهداری خودرو</h3></a> <span
-                                    class='wz-blog-post-meta'>۰۴ مرداد ۰۱</span></div>
+                                    <h3 class='wz-blog-post-title'>{{$article->name}}</h3></a> <span
+                                    class='wz-blog-post-meta'>{{$article->created_at}}</span></div>
                             <div class='clear'></div>
                         </article>
-                        <article class='wz-blog-post-item'><a
-                                href='https://theme58.mywebzi.ir/blog/uncategorized/P1062-نکات-مهم-تعمیر-و-نگهداری-خودرو.html'
-                                class='wz-blog-post-thumbnail'>
-                                <div class='wzc26 wz-partial-template'>
-                                    <div class='wzc26-frame'></div>
-                                    <div class='wzc26-img'><img class='wzc26-img-inner'
-                                                                src="https://theme58.mywebzi.ir/uploads/3fd9245990d94da19351bea519e718d6.w_768,h_168,r_k.jpg"/>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class='wz-blog-post-section'><a
-                                    href='https://theme58.mywebzi.ir/blog/uncategorized/P1062-نکات-مهم-تعمیر-و-نگهداری-خودرو.html'>
-                                    <h3 class='wz-blog-post-title'>نکات مهم تعمیر و نگهداری خودرو</h3></a> <span
-                                    class='wz-blog-post-meta'>۰۴ مرداد ۰۱</span></div>
-                            <div class='clear'></div>
-                        </article>
-                        <article class='wz-blog-post-item'><a
-                                href='https://theme58.mywebzi.ir/blog/uncategorized/P1061-با-دوام-ترین-خودروهای-چینی-بازار-ایران.html'
-                                class='wz-blog-post-thumbnail'>
-                                <div class='wzc26 wz-partial-template'>
-                                    <div class='wzc26-frame'></div>
-                                    <div class='wzc26-img'><img class='wzc26-img-inner'
-                                                                src="https://theme58.mywebzi.ir/uploads/de8f84b5e04b46c3b7f7bc2f287645d4.w_768,h_168,r_k.jpeg"/>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class='wz-blog-post-section'><a
-                                    href='https://theme58.mywebzi.ir/blog/uncategorized/P1061-با-دوام-ترین-خودروهای-چینی-بازار-ایران.html'>
-                                    <h3 class='wz-blog-post-title'>با دوام ترین خودروهای چینی بازار ایران</h3></a> <span
-                                    class='wz-blog-post-meta'>۰۴ مرداد ۰۱</span></div>
-                            <div class='clear'></div>
-                        </article>
-                        <article class='wz-blog-post-item'><a
-                                href='https://theme58.mywebzi.ir/blog/uncategorized/P1060-چه-روغن-موتوری-در-خودرو-بریزیم.html'
-                                class='wz-blog-post-thumbnail'>
-                                <div class='wzc26 wz-partial-template'>
-                                    <div class='wzc26-frame'></div>
-                                    <div class='wzc26-img'><img class='wzc26-img-inner'
-                                                                src="https://theme58.mywebzi.ir/uploads/c8d33604be9b455397aff5cda22ea882.w_768,h_168,r_k.jpeg"/>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class='wz-blog-post-section'><a
-                                    href='https://theme58.mywebzi.ir/blog/uncategorized/P1060-چه-روغن-موتوری-در-خودرو-بریزیم.html'>
-                                    <h3 class='wz-blog-post-title'>چه روغن موتوری در خودرو بریزیم؟</h3></a> <span
-                                    class='wz-blog-post-meta'>۰۴ مرداد ۰۱</span></div>
-                            <div class='clear'></div>
-                        </article>
+                       @endforeach
                     </div>
                 </div>
             </div>

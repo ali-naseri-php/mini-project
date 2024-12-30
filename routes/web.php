@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (\App\service\selectArticleService $service) {
+//    dd($service->select()->all());
+    return view('welcome',['articles'=>$service->select()->all()]);
 });
 
 Route::get('/register', function () {
