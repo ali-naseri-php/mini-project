@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (\App\service\selectArticleService $service) {
 //    dd($service->select()->all());
-    return view('welcome',['articles'=>$service->select()->all()]);
+
+    return view('welcome',['articles'=>$service->select()->all(),'products'=>\App\Models\product::all()]);
 });
 
 Route::get('/register', function () {

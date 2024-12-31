@@ -487,69 +487,10 @@
                         <div
                             class='flexslider wz-gallery wz-gallery-slider wz-gallery-carousel gallery-a127d8bf0bbfe782ea84eb4e3688d287'>
                             <ul class='slides'>
-                                <li>
-                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                            <div class='wz-element-background wz-shop-product-background'>
-                                                <div class='wzc62 wz-partial-template'>
-                                                    <div class='wzc62-bg'></div>
-                                                    <div
-                                                        class='wzc62-content wz-box-content wz-element-container'></div>
-                                                </div>
-                                            </div>
-                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1064-پمپ-هیدرولیک-تیب.html'
-                                               class='wz-shop-product-image'>
-                                                <div class='wzc6 wz-partial-template'>
-                                                    <div class='wzc6-frame'></div>
-                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
-                                                                               src="https://theme58.mywebzi.ir/uploads/86f5ef609a044b55813f1d0ae5212a6e.w_748,h_90,r_k.jpeg"
-                                                                               alt=""/>
-                                                        <div class='cover'></div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class='wz-shop-product-section'><a
-                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1064-پمپ-هیدرولیک-تیب.html'>
-                                                    <h3 class='wz-shop-product-title'>پمپ هیدرولیک تیبا</h3></a>
-                                                <div class='wz-shop-product-out-stock'>اتمام موجودی</div>
-                                            </div>
-                                            <div class='wz-shop-product-ribbons'></div>
-                                        </article>
-                                    </article>
-                                </li>
-                                <li>
-                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                            <div class='wz-element-background wz-shop-product-background'>
-                                                <div class='wzc62 wz-partial-template'>
-                                                    <div class='wzc62-bg'></div>
-                                                    <div
-                                                        class='wzc62-content wz-box-content wz-element-container'></div>
-                                                </div>
-                                            </div>
-                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1059-چراغ-جلو-راست-موتوردار-تیبا.html'
-                                               class='wz-shop-product-image'>
-                                                <div class='wzc6 wz-partial-template'>
-                                                    <div class='wzc6-frame'></div>
-                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
-                                                                               src="https://theme58.mywebzi.ir/uploads/60d73c1f36214b42b3a031de89e8ae3e.w_748,h_90,r_k.jpeg"
-                                                                               alt=""/>
-                                                        <div class='cover'></div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class='wz-shop-product-section'><a
-                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1059-چراغ-جلو-راست-موتوردار-تیبا.html'>
-                                                    <h3 class='wz-shop-product-title'>چراغ جلو راست موتوردار تیبا</h3>
-                                                </a>
-                                                <div class='wz-shop-product-price'><span
-                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
-                                                        id='' wz-data-product-price='630000'>۶۳۰,۰۰۰ تومان</span></div>
-                                            </div>
-                                            <div class='wz-shop-product-ribbons'></div>
-                                        </article>
-                                    </article>
-                                </li>
+{{--                                برای  نمایش کالا --}}
+                                @foreach($products->all() as $kala)
+                               @for($i=0 ;$i<2;$i+=1)
+
                                 <li>
                                     <article class='wz-shop-product wz-shop-product-effect-cover'>
                                         <article class='wz-shop-product wz-shop-product-effect-cover'>
@@ -565,7 +506,7 @@
                                                 <div class='wzc6 wz-partial-template'>
                                                     <div class='wzc6-frame'></div>
                                                     <div class='wzc6-img'><img class='wzc6-img-inner'
-                                                                               src="https://theme58.mywebzi.ir/uploads/79a9e64e6c3d4d37bd8e0bb5f79e15ef.w_748,h_90,r_k.jpeg"
+                                                                               src="{{$kala->image}}"
                                                                                alt=""/>
                                                         <div class='cover'></div>
                                                     </div>
@@ -573,215 +514,17 @@
                                             </a>
                                             <div class='wz-shop-product-section'><a
                                                     href='https://theme58.mywebzi.ir/shop/saipa/P1058-سرپلوس-تیبا.html'>
-                                                    <h3 class='wz-shop-product-title'>سرپلوس تیبا</h3></a>
+                                                    <h3 class='wz-shop-product-title'>{{$kala->name}}</h3></a>
                                                 <div class='wz-shop-product-price'><span
                                                         class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
-                                                        id='' wz-data-product-price='900000'>۹۰۰,۰۰۰ تومان</span></div>
+                                                        id='' wz-data-product-price='900000'>{{$kala->price}} تومان</span></div>
                                             </div>
                                             <div class='wz-shop-product-ribbons'></div>
                                         </article>
                                     </article>
                                 </li>
-                                <li>
-                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                            <div class='wz-element-background wz-shop-product-background'>
-                                                <div class='wzc62 wz-partial-template'>
-                                                    <div class='wzc62-bg'></div>
-                                                    <div
-                                                        class='wzc62-content wz-box-content wz-element-container'></div>
-                                                </div>
-                                            </div>
-                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1057-سپر-جلو-تیبا.html'
-                                               class='wz-shop-product-image'>
-                                                <div class='wzc6 wz-partial-template'>
-                                                    <div class='wzc6-frame'></div>
-                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
-                                                                               src="https://theme58.mywebzi.ir/uploads/200af9e79a2f4db395ac4438b6998fb5.w_748,h_90,r_k.jpeg"
-                                                                               alt=""/>
-                                                        <div class='cover'></div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class='wz-shop-product-section'><a
-                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1057-سپر-جلو-تیبا.html'>
-                                                    <h3 class='wz-shop-product-title'>سپر جلو تیبا</h3></a>
-                                                <div class='wz-shop-product-price'><span
-                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
-                                                        id='' wz-data-product-price='521000'>۵۲۱,۰۰۰ تومان</span></div>
-                                            </div>
-                                            <div class='wz-shop-product-ribbons'>
-                                                <div class='wz-shop-product-ribbon'>رنگ شده</div>
-                                            </div>
-                                        </article>
-                                    </article>
-                                </li>
-                                <li>
-                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                            <div class='wz-element-background wz-shop-product-background'>
-                                                <div class='wzc62 wz-partial-template'>
-                                                    <div class='wzc62-bg'></div>
-                                                    <div
-                                                        class='wzc62-content wz-box-content wz-element-container'></div>
-                                                </div>
-                                            </div>
-                                            <a href='https://theme58.mywebzi.ir/shop/saipa/P1056-پمپ-هیدرولیک-پراید.html'
-                                               class='wz-shop-product-image'>
-                                                <div class='wzc6 wz-partial-template'>
-                                                    <div class='wzc6-frame'></div>
-                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
-                                                                               src="https://theme58.mywebzi.ir/uploads/86f5ef609a044b55813f1d0ae5212a6e.w_748,h_90,r_k.jpeg"
-                                                                               alt=""/>
-                                                        <div class='cover'></div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class='wz-shop-product-section'><a
-                                                    href='https://theme58.mywebzi.ir/shop/saipa/P1056-پمپ-هیدرولیک-پراید.html'>
-                                                    <h3 class='wz-shop-product-title'>پمپ هیدرولیک پراید</h3></a>
-                                                <div class='wz-shop-product-price'><span
-                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
-                                                        id='' wz-data-product-price='1821000'>۱,۸۲۱,۰۰۰ تومان</span>
-                                                </div>
-                                            </div>
-                                            <div class='wz-shop-product-ribbons'></div>
-                                        </article>
-                                    </article>
-                                </li>
-                                <li>
-                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                            <div class='wz-element-background wz-shop-product-background'>
-                                                <div class='wzc62 wz-partial-template'>
-                                                    <div class='wzc62-bg'></div>
-                                                    <div
-                                                        class='wzc62-content wz-box-content wz-element-container'></div>
-                                                </div>
-                                            </div>
-                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1055-سنسور-انژکتور-طرح-ساژم-پراید.html'
-                                               class='wz-shop-product-image'>
-                                                <div class='wzc6 wz-partial-template'>
-                                                    <div class='wzc6-frame'></div>
-                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
-                                                                               src="https://theme58.mywebzi.ir/uploads/912fddf38134441fa0ff8519e515f305.w_748,h_90,r_k.jpeg"
-                                                                               alt=""/>
-                                                        <div class='cover'></div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class='wz-shop-product-section'><a
-                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1055-سنسور-انژکتور-طرح-ساژم-پراید.html'>
-                                                    <h3 class='wz-shop-product-title'>سنسور انژکتور طرح ساژم پراید</h3>
-                                                </a>
-                                                <div class='wz-shop-product-price'><span
-                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
-                                                        id='' wz-data-product-price='1800000'>۱,۸۰۰,۰۰۰ تومان</span>
-                                                </div>
-                                            </div>
-                                            <div class='wz-shop-product-ribbons'></div>
-                                        </article>
-                                    </article>
-                                </li>
-                                <li>
-                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                            <div class='wz-element-background wz-shop-product-background'>
-                                                <div class='wzc62 wz-partial-template'>
-                                                    <div class='wzc62-bg'></div>
-                                                    <div
-                                                        class='wzc62-content wz-box-content wz-element-container'></div>
-                                                </div>
-                                            </div>
-                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1054-دیسک-و-صفحه-پژو-206-تیپ-2.html'
-                                               class='wz-shop-product-image'>
-                                                <div class='wzc6 wz-partial-template'>
-                                                    <div class='wzc6-frame'></div>
-                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
-                                                                               src="https://theme58.mywebzi.ir/uploads/ada1fb5e6f554f9d946bea3bc257620f.w_748,h_90,r_k.jpeg"
-                                                                               alt=""/>
-                                                        <div class='cover'></div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class='wz-shop-product-section'><a
-                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1054-دیسک-و-صفحه-پژو-206-تیپ-2.html'>
-                                                    <h3 class='wz-shop-product-title'>دیسک و صفحه پژو 206 تیپ 2</h3></a>
-                                                <div class='wz-shop-product-price'><span
-                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
-                                                        id='' wz-data-product-price='2300000'>۲,۳۰۰,۰۰۰ تومان</span>
-                                                </div>
-                                            </div>
-                                            <div class='wz-shop-product-ribbons'></div>
-                                        </article>
-                                    </article>
-                                </li>
-                                <li>
-                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                            <div class='wz-element-background wz-shop-product-background'>
-                                                <div class='wzc62 wz-partial-template'>
-                                                    <div class='wzc62-bg'></div>
-                                                    <div
-                                                        class='wzc62-content wz-box-content wz-element-container'></div>
-                                                </div>
-                                            </div>
-                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1053-دیسک-و-صفحه-پژو-206-تیپ-2.html'
-                                               class='wz-shop-product-image'>
-                                                <div class='wzc6 wz-partial-template'>
-                                                    <div class='wzc6-frame'></div>
-                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
-                                                                               src="https://theme58.mywebzi.ir/uploads/ada1fb5e6f554f9d946bea3bc257620f.w_748,h_90,r_k.jpeg"
-                                                                               alt=""/>
-                                                        <div class='cover'></div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class='wz-shop-product-section'><a
-                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1053-دیسک-و-صفحه-پژو-206-تیپ-2.html'>
-                                                    <h3 class='wz-shop-product-title'>دیسک و صفحه پژو 206 تیپ 2</h3></a>
-                                                <div class='wz-shop-product-price'><span
-                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
-                                                        id='' wz-data-product-price='2300000'>۲,۳۰۰,۰۰۰ تومان</span>
-                                                </div>
-                                            </div>
-                                            <div class='wz-shop-product-ribbons'></div>
-                                        </article>
-                                    </article>
-                                </li>
-                                <li>
-                                    <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                        <article class='wz-shop-product wz-shop-product-effect-cover'>
-                                            <div class='wz-element-background wz-shop-product-background'>
-                                                <div class='wzc62 wz-partial-template'>
-                                                    <div class='wzc62-bg'></div>
-                                                    <div
-                                                        class='wzc62-content wz-box-content wz-element-container'></div>
-                                                </div>
-                                            </div>
-                                            <a href='https://theme58.mywebzi.ir/shop/ikco/P1052-رینگ-چرخ-برلیانس-h220.html'
-                                               class='wz-shop-product-image'>
-                                                <div class='wzc6 wz-partial-template'>
-                                                    <div class='wzc6-frame'></div>
-                                                    <div class='wzc6-img'><img class='wzc6-img-inner'
-                                                                               src="https://theme58.mywebzi.ir/uploads/10914a00503540509dc24afe7c818983.w_748,h_90,r_k.jpeg"
-                                                                               alt=""/>
-                                                        <div class='cover'></div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class='wz-shop-product-section'><a
-                                                    href='https://theme58.mywebzi.ir/shop/ikco/P1052-رینگ-چرخ-برلیانس-h220.html'>
-                                                    <h3 class='wz-shop-product-title'>رینگ چرخ برلیانس H220</h3></a>
-                                                <div class='wz-shop-product-price'><span
-                                                        class='wz-shop-product-old-price wz-shop-product-old-price-empty'>&#8203;</span><span
-                                                        id='' wz-data-product-price='1060000'>۱,۰۶۰,۰۰۰ تومان</span>
-                                                </div>
-                                            </div>
-                                            <div class='wz-shop-product-ribbons'></div>
-                                        </article>
-                                    </article>
-                                </li>
+                                    @endfor
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -1338,6 +1081,7 @@
                  wz-autoheight>
                 <div class='wzc42 wz-template'>
                     <div class="wzc42-posts wz-blog-list wz-blog-list-layout2 wz-blog-list-rtl">
+{{--                 برای نمایش مقاله ها--}}
                        @foreach($articles as $article)
 
                         <article class='wz-blog-post-item'>
